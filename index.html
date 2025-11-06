@@ -363,6 +363,57 @@
             border-color: #333;
         }
 
+        /* Industries Section */
+        .industries-section {
+            margin-top: 3rem;
+        }
+
+        .industries-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .industry-item {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .industry-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-color: var(--red);
+        }
+
+        .industry-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .industry-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin: 0;
+            line-height: 1.3;
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--light-gray);
@@ -530,6 +581,54 @@
                 </div>
             </section>
 
+            <!-- Heritage & Industries -->
+            <section class="content-section">
+                <div class="section-eyebrow">HERITAGE</div>
+                <h2 class="section-title">Family-Owned Excellence</h2>
+                <p class="section-description">
+                    As a proud family-owned business, Strategia-X brings decades of highly skilled professional experience 
+                    to every engagement. Our commitment to excellence spans generations, delivering trusted consulting 
+                    solutions with the personal touch and long-term thinking that only a family business can provide.
+                </p>
+                
+                <div class="industries-section">
+                    <div class="section-eyebrow" style="margin-top: 4rem;">INDUSTRIES SERVED</div>
+                    <h3 class="industries-title">Diverse Expertise Across Key Sectors</h3>
+                    
+                    <div class="industries-grid">
+                        <div class="industry-item">
+                            <div class="industry-icon">📦</div>
+                            <h4>Distribution & Wholesale</h4>
+                        </div>
+                        
+                        <div class="industry-item">
+                            <div class="industry-icon">🧬</div>
+                            <h4>Health Sciences</h4>
+                        </div>
+                        
+                        <div class="industry-item">
+                            <div class="industry-icon">🏭</div>
+                            <h4>Industrial Fabrication</h4>
+                        </div>
+                        
+                        <div class="industry-item">
+                            <div class="industry-icon">🏗️</div>
+                            <h4>Architectural</h4>
+                        </div>
+                        
+                        <div class="industry-item">
+                            <div class="industry-icon">🏢</div>
+                            <h4>Construction</h4>
+                        </div>
+                        
+                        <div class="industry-item">
+                            <div class="industry-icon">⚖️</div>
+                            <h4>Legal Services</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Services Overview -->
             <section class="content-section">
                 <div class="section-eyebrow">EXPERTISE</div>
@@ -548,7 +647,7 @@
                     
                     <div class="service-card">
                         <div class="service-icon">⚙️</div>
-                        <h3>Business Operations</h3>
+                        <h3>Business Operations Optimization</h3>
                         <p>Streamline processes and enhance efficiency to maximize operational performance and reduce costs.</p>
                     </div>
                     
@@ -556,6 +655,24 @@
                         <div class="service-icon">🔧</div>
                         <h3>Engineering Solutions</h3>
                         <p>Custom software development and system integration to solve complex business challenges.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3>Digital Transformation</h3>
+                        <p>End-to-end modernization of legacy systems and implementation of cutting-edge technologies.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Data Analytics & Intelligence</h3>
+                        <p>Transform raw data into actionable business insights that drive informed decision-making.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Strategic Advisory & Executive Consulting</h3>
+                        <p>C-suite level strategic guidance that aligns technology initiatives with business strategy.</p>
                     </div>
                 </div>
             </section>
@@ -578,6 +695,7 @@
                     <div class="expertise-item">Agile Methodologies</div>
                     <div class="expertise-item">Process Optimization</div>
                     <div class="expertise-item">Change Management</div>
+                    <div class="expertise-item">AI/ML Integration</div>
                 </div>
             </section>
 
@@ -605,6 +723,24 @@
             <!-- Detailed Services -->
             <section class="content-section">
                 <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📋</div>
+                        <h3>Business Strategy & Planning</h3>
+                        <p>Comprehensive business strategy development, strategic planning, and roadmap creation that provides the foundational framework for all technology and operational initiatives.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3>Technology Assessment & Roadmapping</h3>
+                        <p>In-depth analysis of current technology landscape, gap assessment, and strategic roadmap development that serves as the blueprint for all transformation initiatives.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>Financial Planning & ROI Analysis</h3>
+                        <p>Business case development, financial modeling, and ROI analysis that ensures every strategic initiative delivers measurable value and aligns with budget objectives.</p>
+                    </div>
+                    
                     <div class="service-card">
                         <div class="service-icon">💻</div>
                         <h3>IT Strategy & Architecture</h3>
@@ -639,6 +775,42 @@
                         <div class="service-icon">🛡️</div>
                         <h3>Risk Management & Compliance</h3>
                         <p>Comprehensive security assessments, compliance frameworks, and risk mitigation strategies to protect your business.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Data Analytics & Intelligence</h3>
+                        <p>Transform raw data into actionable business insights with advanced analytics, reporting dashboards, and intelligence platforms that drive informed decision-making and competitive advantage.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>AI/ML Integration & Automation</h3>
+                        <p>Harness the power of artificial intelligence and machine learning to automate processes, enhance decision-making, and unlock new opportunities for innovation and competitive advantage.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3>Training & Change Management</h3>
+                        <p>Ensure successful technology adoption through comprehensive training programs, change management strategies, and ongoing support that empowers your team to maximize new capabilities.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Performance Optimization & Monitoring</h3>
+                        <p>Continuous monitoring, performance tuning, and optimization services that ensure your technology investments deliver maximum ROI and peak performance over time.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Strategic Advisory & Executive Consulting</h3>
+                        <p>C-suite level strategic guidance, executive coaching, and board-level consulting that aligns technology initiatives with business strategy and stakeholder objectives.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3>Cloud Strategy & Migration</h3>
+                        <p>Comprehensive cloud transformation services including strategy development, platform selection, seamless migration, and hybrid cloud optimization to maximize scalability, efficiency, and cost savings.</p>
                     </div>
                 </div>
             </section>

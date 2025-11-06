@@ -117,28 +117,6 @@
             opacity: 0.7;
         }
 
-        /* Hero Main Logo */
-        .hero-main-logo {
-            max-width: 700px;
-            height: auto;
-            margin: 2rem auto;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .hero-main-logo {
-                max-width: 500px;
-                margin: 1.5rem auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-main-logo {
-                max-width: 350px;
-                margin: 1rem auto;
-            }
-        }
-
         /* Hero Section - Apple Style */
         .hero {
             background: var(--black);
@@ -166,6 +144,19 @@
             margin-bottom: 1rem;
             letter-spacing: -2px;
             line-height: 1.05;
+        }
+
+        .hero-logo {
+            max-width: 100%;
+            height: auto;
+            width: clamp(500px, 50vw, 800px);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-logo {
+                width: clamp(300px, 80vw, 500px);
+            }
         }
 
         .hero-subtitle {
@@ -500,7 +491,7 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo" onclick="showPage('home')">
-                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Header_Main.png" alt="Strategia-X Header Logo" class="header-logo">
+                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Header%20Logo.png" alt="Strategia-X Header Logo" class="header-logo">
             </a>
             <ul class="nav-links">
                 <li><a onclick="showPage('home')">Home</a></li>
@@ -516,9 +507,9 @@
         <div id="home" class="page active">
             <!-- Hero Section -->
             <section class="hero">
-                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX.1_Main.png" alt="Strategia-X Logo" class="hero-main-logo">
                 <div class="hero-eyebrow">Elite Consulting</div>
-                <h1 style="color: white;">Strategic.<br>Excellence.<br>Engineered.</h1>
+                <h2 class="section-title" style="color: white;">Strategic.<br>Excellence.<br>Engineered.</h2>
+                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Body%20Logo.png" alt="Strategia-X" class="hero-logo">
                 <p class="hero-subtitle">IT & Business Operations Excellence</p>
                 <p class="hero-description">
                     Transforming businesses through strategic technology implementation, 

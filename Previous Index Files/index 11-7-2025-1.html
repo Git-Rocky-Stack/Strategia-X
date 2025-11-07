@@ -406,103 +406,6 @@
             display: block;
         }
 
-        .industry-image {
-            width: 100%;
-            max-width: 650px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .industry-item:hover .industry-image {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .industry-image {
-                max-width: 450px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .industry-image {
-                max-width: 320px;
-            }
-        }
-
-        /* Modal Styling */
-        .image-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: zoomIn 0.3s ease;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            background: var(--red);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: #b91c1c;
-            transform: scale(1.1);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes zoomIn {
-            from { 
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-            to { 
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
         .industry-item h4 {
             font-size: 1.1rem;
             font-weight: 600;
@@ -513,7 +416,7 @@
 
         /* CTA Section */
         .cta-section {
-            background: var(--red);
+            background: var(--light-gray);
             padding: 100px 2rem;
             text-align: center;
         }
@@ -522,38 +425,17 @@
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            color: white;
+            color: var(--dark-gray);
             letter-spacing: -1px;
         }
 
         .cta-section p {
             font-size: 1.2rem;
-            color: white;
+            color: var(--mid-gray);
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.95;
-        }
-
-        .cta-section .btn-primary {
-            background: white;
-            color: var(--red);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-section .btn-primary:hover {
-            background: #f8f8f8;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         /* Footer - Apple Style */
@@ -721,32 +603,32 @@
                     
                     <div class="industries-grid">
                         <div class="industry-item">
-                            <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/distribution.png" alt="Distribution & Wholesale" class="industry-image" onclick="openImageModal(this.src, this.alt)">
+                            <div class="industry-icon">📦</div>
                             <h4>Distribution & Wholesale</h4>
                         </div>
                         
                         <div class="industry-item">
-                            <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/health_sciences.png" alt="Health Sciences" class="industry-image" onclick="openImageModal(this.src, this.alt)">
+                            <div class="industry-icon">🧬</div>
                             <h4>Health Sciences</h4>
                         </div>
                         
                         <div class="industry-item">
-                            <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/industrial.png" alt="Industrial Fabrication" class="industry-image" onclick="openImageModal(this.src, this.alt)">
+                            <div class="industry-icon">🏭</div>
                             <h4>Industrial Fabrication</h4>
                         </div>
                         
                         <div class="industry-item">
-                            <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/architectural_firm.png" alt="Architectural" class="industry-image" onclick="openImageModal(this.src, this.alt)">
+                            <div class="industry-icon">🏗️</div>
                             <h4>Architectural</h4>
                         </div>
                         
                         <div class="industry-item">
-                            <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/construction.png" alt="Construction" class="industry-image" onclick="openImageModal(this.src, this.alt)">
+                            <div class="industry-icon">🏢</div>
                             <h4>Construction</h4>
                         </div>
                         
                         <div class="industry-item">
-                            <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/legal_firm.png" alt="Legal Services" class="industry-image" onclick="openImageModal(this.src, this.alt)">
+                            <div class="industry-icon">⚖️</div>
                             <h4>Legal Services</h4>
                         </div>
                     </div>
@@ -1099,14 +981,6 @@
         </div>
     </footer>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="image-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeImageModal()">&times;</button>
-            <img id="modalImage" class="modal-image" src="" alt="">
-        </div>
-    </div>
-
     <!-- JavaScript -->
     <script>
         // Page navigation
@@ -1124,36 +998,6 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
             });
-        });
-
-        // Image modal functionality
-        function openImageModal(imageSrc, imageAlt) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'block';
-            modalImg.src = imageSrc;
-            modalImg.alt = imageAlt;
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeImageModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Close modal when clicking outside the image
-        document.getElementById('imageModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeImageModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeImageModal();
-            }
         });
     </script>
 </body>

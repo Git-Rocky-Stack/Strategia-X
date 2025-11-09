@@ -512,35 +512,6 @@
             line-height: 1.3;
         }
 
-        /* Service Images */
-        .service-image {
-            width: 100%;
-            max-width: 650px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .service-card:hover .service-image {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .service-image {
-                max-width: 450px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .service-image {
-                max-width: 320px;
-            }
-        }
-
         /* CTA Section */
         .cta-section {
             background: var(--red);
@@ -878,91 +849,91 @@
             <section class="content-section">
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Business%20Strategy%20Planning.png" alt="Business Strategy & Planning" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">📋</div>
                         <h3>Business Strategy & Planning</h3>
                         <p>Comprehensive business strategy development, strategic planning, and roadmap creation that provides the foundational framework for all technology and operational initiatives.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Technology%20Assessment.png" alt="Technology Assessment & Roadmapping" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🔍</div>
                         <h3>Technology Assessment & Roadmapping</h3>
                         <p>In-depth analysis of current technology landscape, gap assessment, and strategic roadmap development that serves as the blueprint for all transformation initiatives.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Financial%20Planning%20ROI.png" alt="Financial Planning & ROI Analysis" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">💰</div>
                         <h3>Financial Planning & ROI Analysis</h3>
                         <p>Business case development, financial modeling, and ROI analysis that ensures every strategic initiative delivers measurable value and aligns with budget objectives.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/IT%20Strategy%20Architecture.png" alt="IT Strategy & Architecture" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">💻</div>
                         <h3>IT Strategy & Architecture</h3>
                         <p>Comprehensive technology roadmaps, infrastructure design, and digital transformation strategies that align with your business objectives and drive sustainable growth.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Business%20Ops%20Optimization.png" alt="Business Operations Optimization" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">⚙️</div>
                         <h3>Business Operations Optimization</h3>
                         <p>Streamline processes, enhance efficiency, and implement best practices to maximize operational performance and reduce costs across your organization.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Eng%20Solutions.png" alt="Engineering Solutions" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🔧</div>
                         <h3>Engineering Solutions</h3>
                         <p>Custom software development, system integration, and technical architecture design to solve complex business challenges with innovative approaches.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Tech%20Leadership.png" alt="Technical Leadership" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">📊</div>
                         <h3>Technical Leadership</h3>
                         <p>Expert guidance on technology decisions, team building, project management, and strategic technical initiatives to accelerate business success.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Digital%20Transformation.png" alt="Digital Transformation" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🚀</div>
                         <h3>Digital Transformation</h3>
                         <p>End-to-end modernization of legacy systems, cloud migration strategies, and implementation of cutting-edge technologies.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Risk%20Compliance.png" alt="Risk Management & Compliance" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🛡️</div>
                         <h3>Risk Management & Compliance</h3>
                         <p>Comprehensive security assessments, compliance frameworks, and risk mitigation strategies to protect your business.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Data%20Analytics.png" alt="Data Analytics & Intelligence" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">📈</div>
                         <h3>Data Analytics & Intelligence</h3>
                         <p>Transform raw data into actionable business insights with advanced analytics, reporting dashboards, and intelligence platforms that drive informed decision-making and competitive advantage.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/AiML.png" alt="AI/ML Integration & Automation" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🤖</div>
                         <h3>AI/ML Integration & Automation</h3>
                         <p>Harness the power of artificial intelligence and machine learning to automate processes, enhance decision-making, and unlock new opportunities for innovation and competitive advantage.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Training%20Change%20Management.png" alt="Training & Change Management" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🎓</div>
                         <h3>Training & Change Management</h3>
                         <p>Ensure successful technology adoption through comprehensive training programs, change management strategies, and ongoing support that empowers your team to maximize new capabilities.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Perf_Opt.png" alt="Performance Optimization & Monitoring" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">⚡</div>
                         <h3>Performance Optimization & Monitoring</h3>
                         <p>Continuous monitoring, performance tuning, and optimization services that ensure your technology investments deliver maximum ROI and peak performance over time.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Advisory%20Consulting.png" alt="Strategic Advisory & Executive Consulting" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">🎯</div>
                         <h3>Strategic Advisory & Executive Consulting</h3>
                         <p>C-suite level strategic guidance, executive coaching, and board-level consulting that aligns technology initiatives with business strategy and stakeholder objectives.</p>
                     </div>
                     
                     <div class="service-card">
-                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Services/Cloud%20Migration.png" alt="Cloud Strategy & Migration" class="service-image" onclick="openImageModal(this.src, this.alt)">
+                        <div class="service-icon">☁️</div>
                         <h3>Cloud Strategy & Migration</h3>
                         <p>Comprehensive cloud transformation services including strategy development, platform selection, seamless migration, and hybrid cloud optimization to maximize scalability, efficiency, and cost savings.</p>
                     </div>

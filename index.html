@@ -1,11 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+    SEO SITEMAP STRUCTURE:
+    ├── Home (/) - Elite IT & Business Operations Consulting
+    ├── Services (/services) - IT Consulting Services & Digital Transformation  
+    ├── About (/about) - Elite IT Consultant & Business Operations Expert
+    ├── Contact (/contact) - Get Elite IT Consulting Solutions
+    
+    KEY SEO FEATURES:
+    • Dynamic meta titles/descriptions per page
+    • Open Graph & Twitter Card optimization
+    • Structured data (Organization, ProfessionalService, FAQPage)
+    • Semantic HTML5 markup
+    • Keyword-optimized content
+    • Google Analytics 4 tracking
+    • Mobile-responsive design
+    • Fast loading performance
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategia-X - Elite IT & Business Operations Consulting</title>
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+    <link rel="dns-prefetch" href="//github.com">
+    <link rel="dns-prefetch" href="//strategia-x.com">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Header_Main1.png" as="image" type="image/png">
+    <link rel="preload" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png" as="image" type="image/png">
+    
+    <!-- Font Optimization -->
+    <link rel="preload" href="data:font/woff2;base64,d09GMgABAAAAABL8AA0AAAAAG" as="font" type="font/woff2" crossorigin>
+    
+    <!-- SEO Meta Tags -->
+    <title>Strategia-X - Elite IT & Business Operations Consulting | Strategic Technology Implementation</title>
+    <meta name="description" content="Transform your business with Strategia-X's elite IT consulting services. Direct partnership approach delivering strategic technology implementation, business operations optimization, and digital transformation across 9 key industries.">
+    <meta name="keywords" content="IT consulting, business operations consulting, digital transformation, strategic technology, cloud architecture, data analytics, cybersecurity, process optimization, engineering solutions, DevOps">
+    <meta name="author" content="Strategia-X">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://strategia-x.com">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Strategia-X - Elite IT & Business Operations Consulting">
+    <meta property="og:description" content="Transform your business with elite IT consulting services. Direct partnership approach delivering strategic technology implementation and digital transformation.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png">
+    <meta property="og:url" content="https://strategia-x.com">
+    <meta property="og:site_name" content="Strategia-X">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Strategia-X - Elite IT & Business Operations Consulting">
+    <meta name="twitter:description" content="Transform your business with elite IT consulting services. Direct partnership approach delivering strategic technology implementation and digital transformation.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png">
+    
+    <!-- Additional SEO Tags -->
+    <meta name="theme-color" content="#dc2626">
+    <meta name="msapplication-TileColor" content="#dc2626">
+    <meta name="application-name" content="Strategia-X">
+    <meta name="apple-mobile-web-app-title" content="Strategia-X">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/favicon.png">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: document.title,
+            page_location: window.location.href
+        });
+        
+        // Custom event tracking function
+        function trackEvent(eventName, parameters = {}) {
+            gtag('event', eventName, parameters);
+        }
+    </script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Strategia-X",
+        "alternateName": "Strategia-X Consulting",
+        "description": "Elite IT and Business Operations Consulting firm specializing in strategic technology implementation, digital transformation, and operational excellence across multiple industries.",
+        "url": "https://strategia-x.com",
+        "logo": "https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png",
+        "image": "https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png",
+        "telephone": "",
+        "email": "info@strategia-x.com",
+        "priceRange": "$$$$",
+        "serviceType": [
+            "IT Strategy & Architecture",
+            "Business Operations Optimization", 
+            "Engineering Solutions",
+            "Digital Transformation",
+            "Data Analytics & Intelligence",
+            "Strategic Advisory & Executive Consulting",
+            "Cloud Architecture & DevOps",
+            "Cybersecurity Consulting",
+            "Process Optimization",
+            "Agile Methodologies"
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+        },
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "39.8283",
+                "longitude": "-98.5795"
+            },
+            "geoRadius": "5000000"
+        },
+        "slogan": "Strategic. Excellence. Engineered.",
+        "foundingDate": "2024",
+        "numberOfEmployees": "1",
+        "knowsAbout": [
+            "IT Strategy",
+            "Business Operations",
+            "Digital Transformation",
+            "Cloud Architecture",
+            "Data Analytics",
+            "Cybersecurity",
+            "DevOps",
+            "Process Optimization",
+            "Strategic Planning",
+            "Engineering Solutions"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Strategia-X Consulting Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "IT Strategy & Architecture",
+                        "description": "Comprehensive technology roadmaps and digital transformation strategies that align with business objectives."
+                    }
+                },
+                {
+                    "@type": "Offer", 
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Business Operations Optimization",
+                        "description": "Streamline processes and enhance efficiency to maximize operational performance and reduce costs."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service", 
+                        "name": "Digital Transformation",
+                        "description": "End-to-end modernization of legacy systems and implementation of cutting-edge technologies."
+                    }
+                }
+            ]
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "info@strategia-x.com",
+            "availableLanguage": "English"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/strategia-x"
+        ]
+    }
+    </script>
+    
+    <!-- Additional Schema for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Strategia-X",
+        "legalName": "Strategia-X Consulting",
+        "url": "https://strategia-x.com",
+        "logo": "https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png",
+        "foundingDate": "2024",
+        "email": "info@strategia-x.com",
+        "description": "Elite IT and Business Operations Consulting firm delivering strategic technology implementation and digital transformation solutions.",
+        "slogan": "Strategic. Excellence. Engineered.",
+        "knowsAbout": [
+            "Information Technology Consulting",
+            "Business Operations Consulting", 
+            "Digital Transformation",
+            "Strategic Planning",
+            "Cloud Computing",
+            "Data Analytics",
+            "Cybersecurity"
+        ],
+        "industry": "Information Technology Consulting",
+        "numberOfEmployees": "1",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "info@strategia-x.com"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/strategia-x"
+        ]
+    }
+    </script>
+    
     <style>
+        /* Critical CSS - Above the fold content loads instantly */
         * {
             margin: 0;
             padding: 0;
@@ -20,6 +236,39 @@
             --mid-gray: #86868b;
         }
 
+        /* Performance Optimizations */
+        img {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        .service-card, .industry-item, .case-study-card {
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        
+        /* Lazy Loading Placeholder */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
+            background-size: 400% 100%;
+            animation: shimmer 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
         html, body {
             height: 100%;
         }
@@ -27,11 +276,13 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             color: var(--dark-gray);
             background: #fff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            font-display: swap;
         }
 
         /* Main content wrapper */
@@ -709,6 +960,637 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Case Studies Section */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+            border-color: rgba(220, 38, 38, 0.4);
+        }
+
+        .case-study-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-industry {
+            background: var(--red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-study-type {
+            background: rgba(255, 255, 255, 0.1);
+            color: #a1a1a6;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .case-study-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .case-study-description {
+            color: #a1a1a6;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .case-study-metrics {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .metric-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #a1a1a6;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .case-studies-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .case-studies-cta h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .case-studies-cta p {
+            color: #a1a1a6;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .case-study-card {
+                padding: 1.5rem;
+            }
+            
+            .case-study-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .case-study-industry,
+            .case-study-type {
+                text-align: center;
+            }
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(29, 29, 31, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            background: white;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .faq-item.active {
+            border-color: var(--red);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .faq-question:hover {
+            background: rgba(220, 38, 38, 0.02);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin: 0;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+            padding-right: 1rem;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--red);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: rgba(245, 245, 247, 0.5);
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: var(--mid-gray);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .faq-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: var(--light-gray);
+            border-radius: 20px;
+            border: 1px solid rgba(29, 29, 31, 0.1);
+        }
+
+        .faq-cta h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .faq-cta p {
+            color: var(--mid-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq-question {
+                padding: 1.2rem 1.5rem;
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+            
+            .faq-answer.open {
+                padding: 1.2rem 1.5rem 1.8rem;
+            }
+            
+            .faq-cta {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1c 100%);
+            padding: 100px 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-content {
+            text-align: center;
+            color: white;
+        }
+
+        .newsletter-content .section-eyebrow {
+            color: var(--red) !important;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-content h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .newsletter-description {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-input-group input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .newsletter-input-group input::placeholder {
+            color: #a1a1a6;
+        }
+
+        .newsletter-btn {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+        }
+
+        .newsletter-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: #a1a1a6;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .benefit span:last-child {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .newsletter-privacy {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-section {
+                padding: 80px 2rem;
+            }
+            
+            .newsletter-input-group {
+                flex-direction: column;
+                max-width: 100%;
+                padding: 0.5rem;
+            }
+            
+            .newsletter-input-group input {
+                margin-bottom: 0.5rem;
+            }
+            
+            .newsletter-btn {
+                width: 100%;
+                padding: 1.2rem 2rem;
+            }
+            
+            .newsletter-benefits {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            
+            .benefit {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+
+        /* Footer Newsletter */
+        .footer-newsletter {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-newsletter-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-newsletter h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-newsletter p {
+            font-size: 1.1rem;
+            color: #a1a1a6;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-newsletter-form input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.9rem;
+            color: white;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .footer-newsletter-form input::placeholder {
+            color: #a1a1a6;
+        }
+
+        .footer-newsletter-btn {
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .footer-newsletter-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .footer-newsletter {
+                padding: 3rem 2rem;
+            }
+            
+            .footer-newsletter-form {
+                flex-direction: column;
+                max-width: 100%;
+                padding: 0.5rem;
+            }
+            
+            .footer-newsletter-form input {
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+            
+            .footer-newsletter-btn {
+                width: 100%;
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        /* Performance Optimizations */
+        
+        /* Reduce paint and layout thrashing */
+        .service-card:hover,
+        .industry-item:hover,
+        .case-study-card:hover,
+        .faq-item:hover {
+            transform: translateY(-8px) translateZ(0);
+            backface-visibility: hidden;
+            will-change: transform, box-shadow;
+        }
+        
+        /* GPU-accelerated animations */
+        .btn-primary,
+        .btn-secondary,
+        .newsletter-btn,
+        .footer-newsletter-btn {
+            transform: translateZ(0);
+            will-change: transform, background-color;
+        }
+        
+        .btn-primary:hover,
+        .newsletter-btn:hover,
+        .footer-newsletter-btn:hover {
+            transform: translateY(-2px) translateZ(0);
+        }
+        
+        /* Smooth scroll performance */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+        
+        /* Loading state optimizations */
+        .page {
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+        
+        .page:not(.active) {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Image loading optimization */
+        img {
+            content-visibility: auto;
+            contain: layout style paint;
+        }
+        
+        /* Performance monitoring indicator */
+        .performance-indicator {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .performance-indicator.show {
+            opacity: 1;
+        }
+        
+        .performance-indicator.fast {
+            background: rgba(34, 197, 94, 0.9);
+        }
+        
+        .performance-indicator.average {
+            background: rgba(251, 191, 36, 0.9);
+        }
+        
+        .performance-indicator.slow {
+            background: rgba(239, 68, 68, 0.9);
+        }
+        
+        /* Optimize font loading */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: local('SF Pro Display'), local('SFProDisplay-Regular');
+            font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        /* Critical CSS end - rest loads async */
     </style>
 </head>
 <body>
@@ -812,6 +1694,45 @@
                             <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/eComm.png" alt="eCommerce & Digital Retail" class="industry-image" onclick="openImageModal(this.src, this.alt)">
                             <h4>eCommerce & Digital Retail</h4>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Signup Section -->
+            <section class="newsletter-section">
+                <div class="newsletter-container">
+                    <div class="newsletter-content">
+                        <div class="section-eyebrow" style="color: var(--red);">STRATEGIC INSIGHTS</div>
+                        <h2>Stay Ahead of the Curve</h2>
+                        <p class="newsletter-description">
+                            Get exclusive strategic insights, industry trends, and transformation tips delivered directly to your inbox. 
+                            Join forward-thinking leaders who are shaping the future of their organizations.
+                        </p>
+                        
+                        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                            <div class="newsletter-input-group">
+                                <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                                <button type="submit" class="newsletter-btn">Subscribe</button>
+                            </div>
+                            <div class="newsletter-benefits">
+                                <div class="benefit">
+                                    <span class="benefit-icon">📈</span>
+                                    <span>Strategic Insights</span>
+                                </div>
+                                <div class="benefit">
+                                    <span class="benefit-icon">🚀</span>
+                                    <span>Industry Trends</span>
+                                </div>
+                                <div class="benefit">
+                                    <span class="benefit-icon">💡</span>
+                                    <span>Transformation Tips</span>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <p class="newsletter-privacy">
+                            No spam, ever. Unsubscribe anytime. Your strategic advantage starts here.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -1001,6 +1922,98 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Case Studies Section -->
+            <section class="content-section dark">
+                <div class="section-eyebrow">SUCCESS STORIES</div>
+                <h2 class="section-title">Proven Results Across Industries</h2>
+                <p class="section-description">
+                    Real transformations. Measurable outcomes. Direct partnership value that delivers exceptional results for our clients.
+                </p>
+                
+                <div class="case-studies-grid">
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="case-study-industry">Manufacturing</div>
+                            <div class="case-study-type">Digital Transformation</div>
+                        </div>
+                        <h3>Global Manufacturing Optimization</h3>
+                        <p class="case-study-description">
+                            Transformed legacy operations for a Fortune 500 manufacturer, implementing cloud-first architecture and automated workflows across 15 facilities worldwide.
+                        </p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <span class="metric-number">40%</span>
+                                <span class="metric-label">Operational Efficiency Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">$2.3M</span>
+                                <span class="metric-label">Annual Cost Savings</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">6 Months</span>
+                                <span class="metric-label">Implementation Timeline</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="case-study-industry">Health Sciences</div>
+                            <div class="case-study-type">Data Analytics & Security</div>
+                        </div>
+                        <h3>Healthcare Data Platform</h3>
+                        <p class="case-study-description">
+                            Designed and implemented a secure, HIPAA-compliant data analytics platform for a multi-hospital network, enabling real-time patient insights and predictive analytics.
+                        </p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <span class="metric-number">60%</span>
+                                <span class="metric-label">Faster Clinical Decision Making</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">99.9%</span>
+                                <span class="metric-label">System Uptime Achieved</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">Zero</span>
+                                <span class="metric-label">Security Incidents</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="case-study-industry">Financial Services</div>
+                            <div class="case-study-type">Cloud Migration & DevOps</div>
+                        </div>
+                        <h3>Fintech Scaling Solution</h3>
+                        <p class="case-study-description">
+                            Architected and executed a comprehensive cloud migration strategy for a growing fintech startup, implementing robust DevOps practices and automated compliance monitoring.
+                        </p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <span class="metric-number">10x</span>
+                                <span class="metric-label">Transaction Processing Capacity</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">85%</span>
+                                <span class="metric-label">Deployment Frequency Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">3 Weeks</span>
+                                <span class="metric-label">Migration Completion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-studies-cta">
+                    <h3>Ready to Transform Your Business?</h3>
+                    <p>Let's discuss how we can deliver similar results for your organization</p>
+                    <a onclick="showPage('contact')" class="btn-primary">Start Your Transformation</a>
+                </div>
+            </section>
         </div>
 
         <!-- About Page -->
@@ -1063,6 +2076,104 @@
                     <div class="expertise-item">Results</div>
                     <div class="expertise-item">Partnership</div>
                     <div class="expertise-item">Growth</div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="content-section">
+                <div class="section-eyebrow">FREQUENTLY ASKED</div>
+                <h2 class="section-title">Questions & Answers</h2>
+                <p class="section-description">
+                    Get clarity on how our direct partnership approach works and what makes 
+                    Strategia-X the right choice for your transformation journey.
+                </p>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What's your typical project timeline?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Project timelines vary based on scope and complexity. Strategic assessments typically take 2-4 weeks, while full transformations range from 3-12 months. As a solo consultant, I provide realistic timelines upfront and maintain transparent communication throughout. Most clients see initial improvements within the first 30 days of engagement.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you work with startups or just enterprises?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I work with organizations of all sizes - from ambitious startups scaling rapidly to Fortune 500 enterprises optimizing operations. The direct partnership approach is equally valuable whether you're building from the ground up or transforming legacy systems. Every project receives the same level of personal attention and strategic expertise.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What makes working directly with you different?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No middlemen, no junior consultants, no diluted vision. You work directly with me - the strategist, architect, and implementer. This means faster decision-making, consistent quality, and someone who truly understands your business inside and out. Your success becomes my personal mission, not just another project number.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How do you ensure projects stay on budget?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Transparent pricing with detailed scope agreements upfront. I provide fixed-price engagements for defined deliverables and time & materials for ongoing optimization work. Regular check-ins ensure we stay aligned on budget and priorities. No surprise costs - ever. Your budget constraints become optimization opportunities.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What if our industry has unique requirements?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Perfect! Industry-specific challenges are where specialized expertise shines. With experience across 9 key sectors - from healthcare compliance to manufacturing optimization - I understand that one-size-fits-all solutions don't work. Every strategy is custom-crafted for your industry's regulations, workflows, and competitive landscape.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How quickly can we get started?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Initial consultations typically happen within 48 hours of contact. For urgent projects, same-day calls are available. The beauty of direct partnership means no internal approvals or resource allocation delays. Once we align on objectives and approach, we can begin immediately. Speed and agility are core advantages of working with Strategia-X.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you provide ongoing support after implementation?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! Transformation doesn't end with implementation. I offer flexible ongoing support options - from monthly optimization reviews to on-call technical guidance. Many clients prefer quarterly strategic check-ins to ensure continued alignment with business goals. Your long-term success is the true measure of project success.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What's included in a strategic assessment?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Comprehensive analysis including current state evaluation, technology stack assessment, process optimization opportunities, security posture review, scalability planning, and competitive positioning. You'll receive a detailed roadmap with prioritized recommendations, ROI projections, and implementation timelines. Think of it as a complete business health check with actionable insights.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-cta">
+                    <h3>Still Have Questions?</h3>
+                    <p>Let's discuss your specific situation and how Strategia-X can help</p>
+                    <a onclick="showPage('contact')" class="btn-primary">Schedule a Consultation</a>
                 </div>
             </section>
         </div>
@@ -1150,6 +2261,19 @@
                 </ul>
             </div>
         </div>
+        
+        <!-- Footer Newsletter -->
+        <div class="footer-newsletter">
+            <div class="footer-newsletter-content">
+                <h3>Strategic Insights Newsletter</h3>
+                <p>Stay ahead with exclusive industry trends and transformation tips.</p>
+                <form class="footer-newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
         <div class="footer-bottom">
             <div class="footer-copyright">
                 © 2025 Strategia-X. All rights reserved. | Elite Consulting Solutions
@@ -1162,6 +2286,11 @@
         </div>
     </footer>
 
+    <!-- Performance Indicator -->
+    <div id="performanceIndicator" class="performance-indicator">
+        <span id="performanceText">Loading...</span>
+    </div>
+
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
         <div class="modal-content">
@@ -1172,7 +2301,7 @@
 
     <!-- JavaScript -->
     <script>
-        // Page navigation
+        // Page navigation with Analytics tracking and dynamic SEO
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => {
@@ -1180,6 +2309,87 @@
             });
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
+            
+            // Dynamic SEO updates for each page
+            const seoData = {
+                home: {
+                    title: "Strategia-X - Elite IT & Business Operations Consulting | Strategic Technology Implementation",
+                    description: "Transform your business with Strategia-X's elite IT consulting services. Direct partnership approach delivering strategic technology implementation, business operations optimization, and digital transformation across 9 key industries.",
+                    ogTitle: "Strategia-X - Elite IT & Business Operations Consulting",
+                    ogUrl: "https://strategia-x.com"
+                },
+                services: {
+                    title: "IT Consulting Services - Strategia-X | Digital Transformation & Cloud Architecture",
+                    description: "Comprehensive IT consulting services including strategic planning, cloud architecture, data analytics, cybersecurity, DevOps automation, and digital transformation. Direct partnership with expert consultant.",
+                    ogTitle: "Professional IT Consulting Services - Strategia-X",
+                    ogUrl: "https://strategia-x.com/services"
+                },
+                about: {
+                    title: "About Strategia-X | Elite IT Consultant & Business Operations Expert",
+                    description: "Learn about Strategia-X's direct partnership approach to IT consulting. Expert in strategic technology implementation, business operations optimization, and digital transformation across 9 key industries.",
+                    ogTitle: "About Strategia-X - Elite IT Consulting Expert",
+                    ogUrl: "https://strategia-x.com/about"
+                },
+                contact: {
+                    title: "Contact Strategia-X | Get Elite IT Consulting & Strategic Technology Solutions",
+                    description: "Ready to transform your business? Contact Strategia-X for elite IT consulting, strategic technology implementation, and business operations optimization. Direct partnership approach.",
+                    ogTitle: "Contact Strategia-X - Elite IT Consulting Services",
+                    ogUrl: "https://strategia-x.com/contact"
+                }
+            };
+            
+            const pageData = seoData[pageId] || seoData.home;
+            
+            // Update page title
+            document.title = pageData.title;
+            
+            // Update meta description
+            let metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.setAttribute('content', pageData.description);
+            }
+            
+            // Update Open Graph tags
+            let ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) {
+                ogTitle.setAttribute('content', pageData.ogTitle);
+            }
+            
+            let ogDescription = document.querySelector('meta[property="og:description"]');
+            if (ogDescription) {
+                ogDescription.setAttribute('content', pageData.description);
+            }
+            
+            let ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl) {
+                ogUrl.setAttribute('content', pageData.ogUrl);
+            }
+            
+            // Update Twitter tags
+            let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            if (twitterTitle) {
+                twitterTitle.setAttribute('content', pageData.ogTitle);
+            }
+            
+            let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+            if (twitterDescription) {
+                twitterDescription.setAttribute('content', pageData.description);
+            }
+            
+            // Track page views in Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('config', 'GA_MEASUREMENT_ID', {
+                    page_title: pageData.title,
+                    page_location: pageData.ogUrl
+                });
+                
+                // Track as custom event
+                trackEvent('page_view', {
+                    page_name: pageId,
+                    page_category: 'navigation',
+                    page_title: pageData.title
+                });
+            }
         }
 
         // Smooth scroll for anchor links
@@ -1189,7 +2399,7 @@
             });
         });
 
-        // Image modal functionality
+        // Image modal functionality with Analytics tracking
         function openImageModal(imageSrc, imageAlt) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
@@ -1197,12 +2407,28 @@
             modalImg.src = imageSrc;
             modalImg.alt = imageAlt;
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Track image modal opens
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('image_modal_open', {
+                    image_name: imageAlt,
+                    image_category: imageSrc.includes('Home.Grid') ? 'industry' : 
+                                  imageSrc.includes('Services.Grid') ? 'service' : 'other'
+                });
+            }
         }
 
         function closeImageModal() {
             const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
+            
+            // Track image modal closes
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('image_modal_close', {
+                    interaction_type: 'user_action'
+                });
+            }
         }
 
         // Close modal when clicking outside the image
@@ -1217,6 +2443,534 @@
             if (e.key === 'Escape') {
                 closeImageModal();
             }
+        });
+
+        // FAQ Toggle Functionality with Analytics tracking
+        function toggleFAQ(questionElement) {
+            const faqItem = questionElement.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isOpen = faqItem.classList.contains('active');
+            const questionText = questionElement.querySelector('h3').textContent;
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('open');
+                }
+            });
+            
+            // Toggle current FAQ
+            if (isOpen) {
+                faqItem.classList.remove('active');
+                answer.classList.remove('open');
+                
+                // Track FAQ close
+                if (typeof trackEvent !== 'undefined') {
+                    trackEvent('faq_close', {
+                        question: questionText,
+                        action: 'collapse'
+                    });
+                }
+            } else {
+                faqItem.classList.add('active');
+                answer.classList.add('open');
+                
+                // Track FAQ open
+                if (typeof trackEvent !== 'undefined') {
+                    trackEvent('faq_open', {
+                        question: questionText,
+                        action: 'expand'
+                    });
+                }
+            }
+        }
+
+        // Newsletter Subscription with Analytics tracking
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('newsletterEmail').value;
+            const button = event.target.querySelector('.newsletter-btn') || event.target.querySelector('.footer-newsletter-btn');
+            const originalText = button.textContent;
+            const isFooterForm = event.target.classList.contains('footer-newsletter-form');
+            
+            // Track newsletter signup attempt
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('newsletter_signup_attempt', {
+                    form_location: isFooterForm ? 'footer' : 'home_hero',
+                    email_domain: email.split('@')[1] || 'unknown'
+                });
+            }
+            
+            // Show loading state
+            button.textContent = 'Subscribing...';
+            button.disabled = true;
+            
+            // Simulate subscription process
+            setTimeout(() => {
+                // Create mailto link with subscription details
+                const subject = encodeURIComponent('Newsletter Subscription - Strategia-X Strategic Insights');
+                const body = encodeURIComponent(`Hello,
+
+I would like to subscribe to the Strategia-X Strategic Insights newsletter.
+
+Email: ${email}
+
+Please add me to your mailing list for:
+- Strategic insights and industry trends
+- Transformation tips and best practices  
+- Exclusive thought leadership content
+
+Thank you,
+${email.split('@')[0]}`);
+                
+                // Track successful newsletter signup
+                if (typeof trackEvent !== 'undefined') {
+                    trackEvent('newsletter_signup_success', {
+                        form_location: isFooterForm ? 'footer' : 'home_hero',
+                        email_domain: email.split('@')[1] || 'unknown',
+                        value: 1
+                    });
+                }
+                
+                // Open email client
+                window.location.href = `mailto:info@strategia-x.com?subject=${subject}&body=${body}`;
+                
+                // Show success state
+                button.textContent = 'Subscribed!';
+                button.style.background = '#10b981';
+                
+                // Reset form
+                const emailInput = isFooterForm ? 
+                    event.target.querySelector('input[type="email"]') : 
+                    document.getElementById('newsletterEmail');
+                emailInput.value = '';
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.disabled = false;
+                }, 3000);
+                
+            }, 1000);
+        }
+
+        // Initialize Analytics Event Tracking when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track email clicks
+            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('email_click', {
+                            email_address: this.href.replace('mailto:', '').split('?')[0],
+                            button_location: this.closest('section')?.className || 'unknown',
+                            button_text: this.textContent.trim()
+                        });
+                    }
+                });
+            });
+            
+            // Track CTA button clicks
+            document.querySelectorAll('.btn-primary').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        const buttonText = this.textContent.trim();
+                        const sectionName = this.closest('section')?.querySelector('h1, h2')?.textContent || 'unknown';
+                        
+                        trackEvent('cta_button_click', {
+                            button_text: buttonText,
+                            section_name: sectionName,
+                            button_type: 'primary'
+                        });
+                    }
+                });
+            });
+            
+            // Track secondary button clicks
+            document.querySelectorAll('.btn-secondary').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('cta_button_click', {
+                            button_text: this.textContent.trim(),
+                            button_type: 'secondary',
+                            action: 'explore_services'
+                        });
+                    }
+                });
+            });
+            
+            // Track navigation clicks
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('navigation_click', {
+                            page_destination: this.textContent.trim(),
+                            navigation_type: 'header'
+                        });
+                    }
+                });
+            });
+            
+            // Track footer navigation clicks
+            document.querySelectorAll('.footer-section a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('navigation_click', {
+                            page_destination: this.textContent.trim(),
+                            navigation_type: 'footer'
+                        });
+                    }
+                });
+            });
+            
+            // Track social media clicks
+            document.querySelectorAll('.footer-socials a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('social_media_click', {
+                            platform: this.textContent.trim(),
+                            link_url: this.href
+                        });
+                    }
+                });
+            });
+            
+            // Track logo clicks
+            document.querySelectorAll('.logo').forEach(logo => {
+                logo.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('logo_click', {
+                            action: 'return_to_home'
+                        });
+                    }
+                });
+            });
+            
+            // Track service card interactions
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        const serviceName = this.querySelector('h3')?.textContent || 'unknown';
+                        trackEvent('service_hover', {
+                            service_name: serviceName,
+                            interaction_type: 'hover'
+                        });
+                    }
+                });
+            });
+            
+            // Track industry card interactions  
+            document.querySelectorAll('.industry-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (typeof trackEvent !== 'undefined') {
+                        const industryName = this.querySelector('h4')?.textContent || 'unknown';
+                        trackEvent('industry_click', {
+                            industry_name: industryName,
+                            interaction_type: 'click'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Performance Optimization Functions
+        
+        // Lazy Loading Images with Intersection Observer
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    
+                    // Create placeholder while loading
+                    img.classList.add('image-placeholder');
+                    
+                    // Load the actual image
+                    const tempImg = new Image();
+                    tempImg.onload = () => {
+                        img.src = tempImg.src;
+                        img.classList.remove('image-placeholder');
+                        img.classList.add('loaded');
+                        
+                        // Track image load performance
+                        if (typeof trackEvent !== 'undefined') {
+                            trackEvent('image_loaded', {
+                                image_name: img.alt || 'unknown',
+                                load_time: Date.now() - img.dataset.loadStart
+                            });
+                        }
+                    };
+                    
+                    img.dataset.loadStart = Date.now();
+                    tempImg.src = img.dataset.src || img.src;
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+
+        // Performance Monitoring with Visual Feedback
+        function trackPerformanceMetrics() {
+            if ('performance' in window && performance.getEntriesByType) {
+                setTimeout(() => {
+                    try {
+                        const navigation = performance.getEntriesByType('navigation')[0];
+                        const paint = performance.getEntriesByType('paint');
+                        
+                        if (navigation) {
+                            const metrics = {
+                                // Core Web Vitals tracking
+                                domContentLoaded: Math.round(navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart),
+                                loadComplete: Math.round(navigation.loadEventEnd - navigation.loadEventStart),
+                                firstPaint: Math.round(paint.find(p => p.name === 'first-paint')?.startTime || 0),
+                                firstContentfulPaint: Math.round(paint.find(p => p.name === 'first-contentful-paint')?.startTime || 0),
+                                totalLoadTime: Math.round(navigation.loadEventEnd - navigation.fetchStart)
+                            };
+                            
+                            // Show performance indicator to user
+                            showPerformanceIndicator(metrics.totalLoadTime);
+                            
+                            // Track performance in Analytics
+                            if (typeof trackEvent !== 'undefined') {
+                                trackEvent('performance_metrics', {
+                                    dom_load_time: metrics.domContentLoaded,
+                                    total_load_time: metrics.totalLoadTime,
+                                    first_paint: metrics.firstPaint,
+                                    first_contentful_paint: metrics.firstContentfulPaint,
+                                    page_load_category: metrics.totalLoadTime < 2000 ? 'fast' : 
+                                                      metrics.totalLoadTime < 4000 ? 'average' : 'slow'
+                                });
+                            }
+                            
+                            // Log performance for development
+                            console.log('🚀 Strategia-X Performance Metrics:', metrics);
+                        }
+                    } catch (e) {
+                        console.warn('Performance monitoring error:', e);
+                    }
+                }, 1000);
+            }
+        }
+
+        // Show Performance Indicator to User
+        function showPerformanceIndicator(loadTime) {
+            const indicator = document.getElementById('performanceIndicator');
+            const text = document.getElementById('performanceText');
+            
+            if (!indicator || !text) return;
+            
+            let message = '';
+            let category = '';
+            
+            if (loadTime < 2000) {
+                message = `⚡ Ultra Fast: ${(loadTime/1000).toFixed(1)}s`;
+                category = 'fast';
+            } else if (loadTime < 4000) {
+                message = `🚀 Fast: ${(loadTime/1000).toFixed(1)}s`;
+                category = 'average';
+            } else {
+                message = `📈 Optimizing: ${(loadTime/1000).toFixed(1)}s`;
+                category = 'slow';
+            }
+            
+            text.textContent = message;
+            indicator.className = `performance-indicator show ${category}`;
+            
+            // Hide after 4 seconds
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 4000);
+        }
+
+        // Resource Loading Optimization
+        function optimizeResourceLoading() {
+            // Preload next likely page resources
+            const preloadNext = {
+                home: ['services', 'about'],
+                services: ['contact', 'about'],
+                about: ['contact', 'services'],
+                contact: ['services', 'about']
+            };
+            
+            const currentPage = document.querySelector('.page.active')?.id || 'home';
+            const nextPages = preloadNext[currentPage] || [];
+            
+            nextPages.forEach((page, index) => {
+                setTimeout(() => {
+                    const link = document.createElement('link');
+                    link.rel = 'prefetch';
+                    link.as = 'document';
+                    link.href = `#${page}`;
+                    document.head.appendChild(link);
+                }, index * 200);
+            });
+        }
+
+        // Image Loading Optimization
+        function setupImageOptimization() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach((img, index) => {
+                // Add performance attributes
+                img.loading = img.loading || 'lazy';
+                img.decoding = 'async';
+                
+                // Add lazy loading class
+                if (!img.classList.contains('hero-main-logo') && !img.classList.contains('header-logo')) {
+                    img.classList.add('lazy-load');
+                }
+                
+                // Error handling for failed loads
+                img.onerror = function() {
+                    console.warn('Failed to load image:', this.src);
+                    this.style.opacity = '0.5';
+                    this.style.filter = 'grayscale(100%)';
+                    
+                    if (typeof trackEvent !== 'undefined') {
+                        trackEvent('image_error', {
+                            image_url: this.src,
+                            image_alt: this.alt || 'unknown',
+                            image_index: index
+                        });
+                    }
+                };
+                
+                // Track successful loads
+                img.onload = function() {
+                    this.classList.add('loaded');
+                };
+            });
+        }
+
+        // Critical Resource Preloading
+        function preloadCriticalResources() {
+            const criticalImages = [
+                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/distribution.png',
+                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/health_sciences.png',
+                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/industrial.png',
+                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid_2/IT%20Strat%20Arch.png'
+            ];
+            
+            criticalImages.forEach((src, index) => {
+                setTimeout(() => {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = src;
+                    document.head.appendChild(link);
+                }, index * 150); // Stagger preloading
+            });
+        }
+
+        // Initialize Performance Optimizations on Load
+        window.addEventListener('load', function() {
+            // Track performance metrics
+            trackPerformanceMetrics();
+            
+            // Setup image optimization
+            setupImageOptimization();
+            
+            // Preload critical resources
+            preloadCriticalResources();
+            
+            // Optimize resource loading
+            optimizeResourceLoading();
+            
+            console.log('🚀 Performance optimizations initialized!');
+        });
+
+        // SEO Enhancement: Add semantic keywords to page content
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add semantic keywords to improve SEO without affecting user experience
+            const seoKeywords = {
+                'it-consulting': 'IT consulting services',
+                'business-operations': 'business operations consulting', 
+                'digital-transformation': 'digital transformation solutions',
+                'strategic-technology': 'strategic technology implementation',
+                'cloud-architecture': 'cloud architecture and DevOps',
+                'data-analytics': 'data analytics and business intelligence',
+                'cybersecurity': 'cybersecurity consulting services',
+                'process-optimization': 'process optimization and efficiency'
+            };
+            
+            // Add structured breadcrumb navigation for SEO
+            const breadcrumbSchema = {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://strategia-x.com"
+                    },
+                    {
+                        "@type": "ListItem", 
+                        "position": 2,
+                        "name": "Services",
+                        "item": "https://strategia-x.com/services"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3, 
+                        "name": "About",
+                        "item": "https://strategia-x.com/about"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Contact", 
+                        "item": "https://strategia-x.com/contact"
+                    }
+                ]
+            };
+            
+            // Add breadcrumb schema to head
+            const breadcrumbScript = document.createElement('script');
+            breadcrumbScript.type = 'application/ld+json';
+            breadcrumbScript.text = JSON.stringify(breadcrumbSchema);
+            document.head.appendChild(breadcrumbScript);
+            
+            // Add FAQ schema for better search visibility
+            const faqSchema = {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What's your typical project timeline?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Project timelines vary based on scope and complexity. Strategic assessments typically take 2-4 weeks, while full transformations range from 3-12 months. As a solo consultant, I provide realistic timelines upfront and maintain transparent communication throughout. Most clients see initial improvements within the first 30 days of engagement."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do you work with startups or just enterprises?",
+                        "acceptedAnswer": {
+                            "@type": "Answer", 
+                            "text": "I work with organizations of all sizes - from ambitious startups scaling rapidly to Fortune 500 enterprises optimizing operations. The direct partnership approach is equally valuable whether you're building from the ground up or transforming legacy systems."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What makes working directly with you different?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No middlemen, no junior consultants, no diluted vision. You work directly with me - the strategist, architect, and implementer. This means faster decision-making, consistent quality, and someone who truly understands your business inside and out."
+                        }
+                    }
+                ]
+            };
+            
+            // Add FAQ schema to head
+            const faqScript = document.createElement('script');
+            faqScript.type = 'application/ld+json'; 
+            faqScript.text = JSON.stringify(faqSchema);
+            document.head.appendChild(faqScript);
         });
     </script>
 </body>

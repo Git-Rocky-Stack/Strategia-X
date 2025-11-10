@@ -527,6 +527,17 @@
             transform: translateZ(0);
         }
         
+        /* CRITICAL: Force all images visible - disable any hiding */
+        .home-service-image,
+        .industry-image,
+        .service-image {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            transform: none !important;
+        }
+        
         .service-card, .industry-item, .case-study-card {
             will-change: transform;
             backface-visibility: hidden;
@@ -3567,6 +3578,7 @@
                 const allImages = document.querySelectorAll('img');
                 console.log('🖼️ Force loading', allImages.length, 'images...');
                 
+                /* DISABLED - Image processing code that was breaking images
                 allImages.forEach((img) => {
                     // Remove any classes that might hide images
                     img.classList.remove('lazy-load', 'image-placeholder');
@@ -3583,6 +3595,8 @@
                     
                     console.log('📷 Processing image:', img.alt || img.src);
                 });
+                */
+                console.log('✅ Image processing DISABLED - images load naturally');
             }, 100);
             
             // Track email clicks
@@ -3703,7 +3717,8 @@
 
         // Performance Optimization Functions
         
-        // Lazy Loading Images with Intersection Observer
+        // Lazy Loading Images with Intersection Observer - DISABLED FOR IMAGE FIX
+        /* DISABLED - THIS WAS BREAKING IMAGES
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -3737,6 +3752,8 @@
             rootMargin: '50px 0px',
             threshold: 0.1
         });
+        */
+        console.log('✅ Image lazy loading DISABLED - all images load immediately');
 
         // Performance Monitoring with Visual Feedback
         function trackPerformanceMetrics() {
@@ -3910,7 +3927,8 @@
 
         // Advanced Micro-Interactions & Animation System
         
-        // Scroll-triggered reveal animations
+        // Scroll-triggered reveal animations - DISABLED FOR IMAGE FIX
+        /* DISABLED - Scroll animations can interfere with image display
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -3929,6 +3947,8 @@
             threshold: 0.2,
             rootMargin: '-50px 0px'
         });
+        */
+        console.log('✅ Scroll reveal animations DISABLED');
 
         // Enhanced button interaction effects
         function addButtonMicroInteractions() {
@@ -4122,12 +4142,15 @@
                 }, 50);
             });
             
-            // Initialize reveal animations
+            // Initialize reveal animations - DISABLED
+            /* DISABLED - revealObserver is disabled
             const revealElements = document.querySelectorAll('section, .service-card, .industry-item');
             revealElements.forEach(el => {
                 el.classList.add('reveal-animation');
                 revealObserver.observe(el);
             });
+            */
+            console.log('✅ Reveal animations disabled - elements show immediately');
         }
 
         // Scroll progress indicator

@@ -66,14 +66,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net; frame-ancestors 'none';">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-    <meta name="format-detection" content="telephone=no">
-    
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/favicon.png">
     
     <!-- Google Analytics 4 -->
@@ -91,293 +83,6 @@
         function trackEvent(eventName, parameters = {}) {
             gtag('event', eventName, parameters);
         }
-        
-        // Security Monitoring & Protection System
-        window.StrategiaXSecurity = {
-            init: function() {
-                this.setupSecurityMonitoring();
-                this.setupFormProtection();
-                this.setupInputSanitization();
-                this.enforceHTTPS();
-                this.setupPrivacyProtection();
-                console.log('🛡️ Strategia-X Security System Initialized');
-                trackEvent('security_system_initialized', { source: 'security_framework' });
-            },
-            
-            // Advanced Input Sanitization
-            sanitizeInput: function(input) {
-                if (typeof input !== 'string') return '';
-                
-                return input
-                    .replace(/[<>]/g, '') // Remove angle brackets
-                    .replace(/javascript:/gi, '') // Remove javascript: protocol
-                    .replace(/on\w+\s*=/gi, '') // Remove event handlers
-                    .replace(/script/gi, '') // Remove script tags
-                    .replace(/eval\(/gi, '') // Remove eval calls
-                    .replace(/expression\(/gi, '') // Remove CSS expressions
-                    .trim();
-            },
-            
-            // Email Validation with Security Checks
-            validateEmail: function(email) {
-                const sanitized = this.sanitizeInput(email);
-                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                
-                // Additional security checks
-                if (sanitized.length > 254) return false; // RFC compliance
-                if (sanitized.includes('..')) return false; // Consecutive dots
-                if (sanitized.startsWith('.') || sanitized.endsWith('.')) return false;
-                
-                return emailRegex.test(sanitized);
-            },
-            
-            // Anti-Spam & Bot Protection
-            isSpamAttempt: function(formData) {
-                const checks = {
-                    honeypot: formData.website !== '', // Hidden field should be empty
-                    timing: formData.submitTime < 3000, // Too fast = bot
-                    patterns: this.containsSuspiciousPatterns(formData.message || ''),
-                    email: !this.validateEmail(formData.email || '')
-                };
-                
-                const suspiciousCount = Object.values(checks).filter(Boolean).length;
-                
-                if (suspiciousCount > 0) {
-                    trackEvent('spam_attempt_blocked', { 
-                        checks: checks, 
-                        suspiciousCount: suspiciousCount 
-                    });
-                }
-                
-                return suspiciousCount >= 1;
-            },
-            
-            // Pattern Detection for Malicious Content
-            containsSuspiciousPatterns: function(text) {
-                const suspiciousPatterns = [
-                    /<script[^>]*>.*?<\/script>/gi,
-                    /javascript:/gi,
-                    /on\w+\s*=/gi,
-                    /data:text\/html/gi,
-                    /vbscript:/gi,
-                    /(union|select|insert|update|delete|drop|create|alter)\s/gi
-                ];
-                
-                return suspiciousPatterns.some(pattern => pattern.test(text));
-            },
-            
-            // Security Event Monitoring
-            setupSecurityMonitoring: function() {
-                // Monitor for script injection attempts
-                const originalCreateElement = document.createElement;
-                document.createElement = function(tagName) {
-                    const element = originalCreateElement.call(document, tagName);
-                    if (tagName.toLowerCase() === 'script') {
-                        trackEvent('script_injection_attempt', { source: 'createElement' });
-                    }
-                    return element;
-                };
-                
-                // Monitor for suspicious activity
-                window.addEventListener('error', (e) => {
-                    if (e.message.includes('Script error') || e.message.includes('CSP')) {
-                        trackEvent('security_error', { 
-                            message: e.message,
-                            filename: e.filename,
-                            source: 'error_monitoring'
-                        });
-                    }
-                });
-                
-                // Detect potential XSS attempts
-                const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
-                Object.defineProperty(Element.prototype, 'innerHTML', {
-                    set: function(value) {
-                        if (typeof value === 'string' && this.containsSuspiciousPatterns(value)) {
-                            trackEvent('xss_attempt_blocked', { content: value.substring(0, 100) });
-                            console.warn('🛡️ Potentially malicious content blocked');
-                            return;
-                        }
-                        originalInnerHTML.set.call(this, value);
-                    },
-                    get: originalInnerHTML.get
-                });
-            },
-            
-            // HTTPS Enforcement
-            enforceHTTPS: function() {
-                if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-                    trackEvent('http_redirect_attempted', { original_url: location.href });
-                    location.replace('https:' + window.location.href.substring(window.location.protocol.length));
-                }
-            },
-            
-            // Privacy Protection
-            setupPrivacyProtection: function() {
-                // Disable right-click context menu on sensitive areas
-                document.addEventListener('contextmenu', function(e) {
-                    if (e.target.closest('.sensitive-content')) {
-                        e.preventDefault();
-                        trackEvent('context_menu_blocked', { element: e.target.tagName });
-                    }
-                });
-                
-                // Disable text selection on sensitive content
-                const style = document.createElement('style');
-                style.innerHTML = `
-                    .sensitive-content {
-                        -webkit-user-select: none;
-                        -moz-user-select: none;
-                        -ms-user-select: none;
-                        user-select: none;
-                    }
-                `;
-                document.head.appendChild(style);
-            },
-            
-            // Enhanced Form Protection
-            setupFormProtection: function() {
-                document.addEventListener('submit', (e) => {
-                    const form = e.target;
-                    if (form.tagName === 'FORM') {
-                        e.preventDefault();
-                        this.processSecureForm(form);
-                    }
-                });
-            },
-            
-            // Secure Form Processing
-            processSecureForm: function(form) {
-                const formData = new FormData(form);
-                const data = {};
-                
-                // Extract and sanitize form data
-                for (let [key, value] of formData.entries()) {
-                    data[key] = this.sanitizeInput(value);
-                }
-                
-                // Add timing data for bot detection
-                data.submitTime = Date.now() - (window.formStartTime || Date.now());
-                
-                // Perform security checks
-                if (this.isSpamAttempt(data)) {
-                    this.showSecurityError('Submission blocked for security reasons.');
-                    return false;
-                }
-                
-                // Process legitimate submission
-                if (form.id === 'newsletter-form' || form.className.includes('newsletter')) {
-                    this.handleNewsletterSubmission(data);
-                } else {
-                    this.handleContactSubmission(data);
-                }
-            },
-            
-            // Secure Newsletter Submission
-            handleNewsletterSubmission: function(data) {
-                if (!this.validateEmail(data.email)) {
-                    this.showError('Please enter a valid email address.');
-                    return;
-                }
-                
-                this.showSuccess('Successfully subscribed to our newsletter!');
-                trackEvent('newsletter_signup', { 
-                    email_domain: data.email.split('@')[1],
-                    source: 'secure_form'
-                });
-                
-                // Simulate secure email submission
-                this.sendSecureEmail('newsletter', data);
-            },
-            
-            // Secure Contact Form Submission
-            handleContactSubmission: function(data) {
-                const requiredFields = ['name', 'email', 'message'];
-                const missing = requiredFields.filter(field => !data[field]);
-                
-                if (missing.length > 0) {
-                    this.showError(`Please fill in all required fields: ${missing.join(', ')}`);
-                    return;
-                }
-                
-                if (!this.validateEmail(data.email)) {
-                    this.showError('Please enter a valid email address.');
-                    return;
-                }
-                
-                this.showSuccess('Message sent successfully! We\'ll get back to you soon.');
-                trackEvent('contact_form_submitted', { 
-                    email_domain: data.email.split('@')[1],
-                    message_length: data.message.length,
-                    source: 'secure_form'
-                });
-                
-                this.sendSecureEmail('contact', data);
-            },
-            
-            // Secure Email Sending
-            sendSecureEmail: function(type, data) {
-                const subject = type === 'newsletter' 
-                    ? 'Newsletter Subscription - Strategia-X'
-                    : `New Contact Form Submission - ${data.name}`;
-                
-                const body = type === 'newsletter'
-                    ? `New newsletter subscription:\n\nEmail: ${data.email}\nTimestamp: ${new Date().toISOString()}\nSource: Strategia-X Website`
-                    : `New contact form submission:\n\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}\n\nTimestamp: ${new Date().toISOString()}\nSource: Strategia-X Website Security System`;
-                
-                const mailtoLink = `mailto:info@strategia-x.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
-                // Open secure email client
-                window.open(mailtoLink, '_blank');
-                
-                trackEvent('secure_email_generated', { type: type });
-            },
-            
-            // User Feedback Systems
-            showSuccess: function(message) {
-                this.showNotification(message, 'success');
-            },
-            
-            showError: function(message) {
-                this.showNotification(message, 'error');
-            },
-            
-            showSecurityError: function(message) {
-                this.showNotification('🛡️ ' + message, 'security-error');
-                trackEvent('security_error_shown', { message: message });
-            },
-            
-            showNotification: function(message, type) {
-                const notification = document.createElement('div');
-                notification.className = `security-notification ${type}`;
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    padding: 15px 20px;
-                    border-radius: 8px;
-                    color: white;
-                    font-weight: 600;
-                    z-index: 10000;
-                    max-width: 400px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                    backdrop-filter: blur(10px);
-                    transition: all 0.3s ease;
-                    ${type === 'success' ? 'background: linear-gradient(135deg, #10b981, #059669);' : 
-                      type === 'security-error' ? 'background: linear-gradient(135deg, #dc2626, #991b1b);' :
-                      'background: linear-gradient(135deg, #f59e0b, #d97706);'}
-                `;
-                notification.textContent = message;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(100%)';
-                    notification.style.opacity = '0';
-                    setTimeout(() => notification.remove(), 300);
-                }, 4000);
-            }
-        };
     </script>
     
     <!-- Structured Data for SEO -->
@@ -2683,21 +2388,15 @@
                         <form class="newsletter-form" 
                               onsubmit="subscribeNewsletter(event)" 
                               aria-labelledby="newsletter-title"
-                              data-security-enabled="true"
                               novalidate>
-                            <!-- Honeypot field for bot detection (hidden) -->
-                            <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
-                            
                             <div class="newsletter-input-group" role="group" aria-label="Newsletter subscription form">
                                 <label for="newsletterEmail" class="sr-only">Email address for newsletter subscription</label>
                                 <input type="email" 
-                                       id="newsletterEmail"
-                                       name="email"
+                                       id="newsletterEmail" 
                                        placeholder="Enter your email address" 
                                        aria-label="Enter your email address for strategic insights newsletter"
                                        aria-required="true"
                                        aria-describedby="newsletter-benefits newsletter-privacy"
-                                       data-security-validate="email"
                                        required>
                                 <button type="submit" 
                                         class="newsletter-btn"
@@ -3261,17 +2960,8 @@
             <div class="footer-newsletter-content">
                 <h3>Strategic Insights Newsletter</h3>
                 <p>Stay ahead with exclusive industry trends and transformation tips.</p>
-                <form class="footer-newsletter-form" 
-                      onsubmit="subscribeNewsletter(event)"
-                      data-security-enabled="true">
-                    <!-- Honeypot field for bot detection (hidden) -->
-                    <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    
-                    <input type="email" 
-                           name="email"
-                           placeholder="Your email address" 
-                           data-security-validate="email"
-                           required>
+                <form class="footer-newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Your email address" required>
                     <button type="submit" class="footer-newsletter-btn">Subscribe</button>
                 </form>
             </div>
@@ -3505,40 +3195,79 @@
             }
         }
 
-        // Newsletter Subscription with Enhanced Security
+        // Newsletter Subscription with Analytics tracking
         function subscribeNewsletter(event) {
             event.preventDefault();
             
-            // Let the security system handle the form submission
-            if (window.StrategiaXSecurity) {
-                window.StrategiaXSecurity.processSecureForm(event.target);
-            } else {
-                console.warn('Security system not initialized');
-                // Fallback to basic processing
-                const formData = new FormData(event.target);
-                const email = formData.get('email');
-                
-                if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    alert('Thank you for subscribing to our newsletter!');
-                    event.target.reset();
-                } else {
-                    alert('Please enter a valid email address.');
-                }
+            const email = document.getElementById('newsletterEmail').value;
+            const button = event.target.querySelector('.newsletter-btn') || event.target.querySelector('.footer-newsletter-btn');
+            const originalText = button.textContent;
+            const isFooterForm = event.target.classList.contains('footer-newsletter-form');
+            
+            // Track newsletter signup attempt
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('newsletter_signup_attempt', {
+                    form_location: isFooterForm ? 'footer' : 'home_hero',
+                    email_domain: email.split('@')[1] || 'unknown'
+                });
             }
+            
+            // Show loading state
+            button.textContent = 'Subscribing...';
+            button.disabled = true;
+            
+            // Simulate subscription process
+            setTimeout(() => {
+                // Create mailto link with subscription details
+                const subject = encodeURIComponent('Newsletter Subscription - Strategia-X Strategic Insights');
+                const body = encodeURIComponent(`Hello,
+
+I would like to subscribe to the Strategia-X Strategic Insights newsletter.
+
+Email: ${email}
+
+Please add me to your mailing list for:
+- Strategic insights and industry trends
+- Transformation tips and best practices  
+- Exclusive thought leadership content
+
+Thank you,
+${email.split('@')[0]}`);
+                
+                // Track successful newsletter signup
+                if (typeof trackEvent !== 'undefined') {
+                    trackEvent('newsletter_signup_success', {
+                        form_location: isFooterForm ? 'footer' : 'home_hero',
+                        email_domain: email.split('@')[1] || 'unknown',
+                        value: 1
+                    });
+                }
+                
+                // Open email client
+                window.location.href = `mailto:info@strategia-x.com?subject=${subject}&body=${body}`;
+                
+                // Show success state
+                button.textContent = 'Subscribed!';
+                button.style.background = '#10b981';
+                
+                // Reset form
+                const emailInput = isFooterForm ? 
+                    event.target.querySelector('input[type="email"]') : 
+                    document.getElementById('newsletterEmail');
+                emailInput.value = '';
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.disabled = false;
+                }, 3000);
+                
+            }, 1000);
         }
 
         // Initialize Analytics Event Tracking when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Security System FIRST
-            if (window.StrategiaXSecurity) {
-                window.StrategiaXSecurity.init();
-                
-                // Set form start time for timing-based bot detection
-                window.formStartTime = Date.now();
-                
-                console.log('🔒 Strategia-X website loaded with enterprise security enabled');
-            }
-            
             // Track email clicks
             document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
                 link.addEventListener('click', function(e) {

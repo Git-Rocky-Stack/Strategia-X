@@ -66,8 +66,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- Security Headers - CSP TEMPORARILY DISABLED FOR DEBUGGING -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: https://raw.githubusercontent.com https://github.com; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://raw.githubusercontent.com; frame-ancestors 'none';"> -->
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: https://raw.githubusercontent.com https://github.com; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://raw.githubusercontent.com; frame-ancestors 'none';">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -166,12 +166,8 @@
                 return suspiciousPatterns.some(pattern => pattern.test(text));
             },
             
-            // Security Event Monitoring - TEMPORARILY DISABLED FOR DEBUGGING
+            // Security Event Monitoring
             setupSecurityMonitoring: function() {
-                console.log('🛡️ Security monitoring initialized (monitoring mode only)');
-                // Temporarily disabled to fix modal graphics issue
-                // All monitoring features commented out until graphics issue is resolved
-                /*
                 // Monitor for script injection attempts
                 const originalCreateElement = document.createElement;
                 document.createElement = function(tagName) {
@@ -192,6 +188,22 @@
                         });
                     }
                 });
+                
+                // Detect potential XSS attempts
+                // Temporarily disabled innerHTML monitoring to allow modal functionality
+                /*
+                const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+                Object.defineProperty(Element.prototype, 'innerHTML', {
+                    set: function(value) {
+                        if (typeof value === 'string' && this.containsSuspiciousPatterns(value)) {
+                            trackEvent('xss_attempt_blocked', { content: value.substring(0, 100) });
+                            console.warn('🛡️ Potentially malicious content blocked');
+                            return;
+                        }
+                        originalInnerHTML.set.call(this, value);
+                    },
+                    get: originalInnerHTML.get
+                });
                 */
             },
             
@@ -203,11 +215,8 @@
                 }
             },
             
-            // Privacy Protection - TEMPORARILY DISABLED FOR DEBUGGING
+            // Privacy Protection
             setupPrivacyProtection: function() {
-                console.log('🛡️ Privacy protection initialized (monitoring mode only)');
-                // Temporarily disabled to fix modal graphics issue
-                /*
                 // Disable right-click context menu on sensitive areas
                 document.addEventListener('contextmenu', function(e) {
                     if (e.target.closest('.sensitive-content')) {
@@ -227,7 +236,6 @@
                     }
                 `;
                 document.head.appendChild(style);
-                */
             },
             
             // Enhanced Form Protection

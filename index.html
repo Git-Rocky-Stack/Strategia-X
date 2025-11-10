@@ -21,20 +21,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Performance Optimization -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-    <link rel="dns-prefetch" href="//github.com">
-    <link rel="dns-prefetch" href="//strategia-x.com">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Header_Main1.png" as="image" type="image/png">
-    <link rel="preload" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png" as="image" type="image/png">
-    
-    <!-- Font Optimization -->
-    <link rel="preload" href="data:font/woff2;base64,d09GMgABAAAAABL8AA0AAAAAG" as="font" type="font/woff2" crossorigin>
-    
     <!-- SEO Meta Tags -->
     <title>Strategia-X - Elite IT & Business Operations Consulting | Strategic Technology Implementation</title>
     <meta name="description" content="Transform your business with Strategia-X's elite IT consulting services. Direct partnership approach delivering strategic technology implementation, business operations optimization, and digital transformation across 9 key industries.">
@@ -66,14 +52,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- Security Headers - CSP TEMPORARILY DISABLED FOR DEBUGGING -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: https://raw.githubusercontent.com https://github.com; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://raw.githubusercontent.com; frame-ancestors 'none';"> -->
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-    <meta name="format-detection" content="telephone=no">
-    
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/favicon.png">
     
     <!-- Google Analytics 4 -->
@@ -91,288 +69,6 @@
         function trackEvent(eventName, parameters = {}) {
             gtag('event', eventName, parameters);
         }
-        
-        // Security Monitoring & Protection System
-        window.StrategiaXSecurity = {
-            init: function() {
-                this.setupSecurityMonitoring();
-                this.setupFormProtection();
-                this.setupInputSanitization();
-                this.enforceHTTPS();
-                this.setupPrivacyProtection();
-                console.log('🛡️ Strategia-X Security System Initialized');
-                trackEvent('security_system_initialized', { source: 'security_framework' });
-            },
-            
-            // Advanced Input Sanitization
-            sanitizeInput: function(input) {
-                if (typeof input !== 'string') return '';
-                
-                return input
-                    .replace(/[<>]/g, '') // Remove angle brackets
-                    .replace(/javascript:/gi, '') // Remove javascript: protocol
-                    .replace(/on\w+\s*=/gi, '') // Remove event handlers
-                    .replace(/script/gi, '') // Remove script tags
-                    .replace(/eval\(/gi, '') // Remove eval calls
-                    .replace(/expression\(/gi, '') // Remove CSS expressions
-                    .trim();
-            },
-            
-            // Email Validation with Security Checks
-            validateEmail: function(email) {
-                const sanitized = this.sanitizeInput(email);
-                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                
-                // Additional security checks
-                if (sanitized.length > 254) return false; // RFC compliance
-                if (sanitized.includes('..')) return false; // Consecutive dots
-                if (sanitized.startsWith('.') || sanitized.endsWith('.')) return false;
-                
-                return emailRegex.test(sanitized);
-            },
-            
-            // Anti-Spam & Bot Protection
-            isSpamAttempt: function(formData) {
-                const checks = {
-                    honeypot: formData.website !== '', // Hidden field should be empty
-                    timing: formData.submitTime < 3000, // Too fast = bot
-                    patterns: this.containsSuspiciousPatterns(formData.message || ''),
-                    email: !this.validateEmail(formData.email || '')
-                };
-                
-                const suspiciousCount = Object.values(checks).filter(Boolean).length;
-                
-                if (suspiciousCount > 0) {
-                    trackEvent('spam_attempt_blocked', { 
-                        checks: checks, 
-                        suspiciousCount: suspiciousCount 
-                    });
-                }
-                
-                return suspiciousCount >= 1;
-            },
-            
-            // Pattern Detection for Malicious Content
-            containsSuspiciousPatterns: function(text) {
-                const suspiciousPatterns = [
-                    /<script[^>]*>.*?<\/script>/gi,
-                    /javascript:/gi,
-                    /on\w+\s*=/gi,
-                    /data:text\/html/gi,
-                    /vbscript:/gi,
-                    /(union|select|insert|update|delete|drop|create|alter)\s/gi
-                ];
-                
-                return suspiciousPatterns.some(pattern => pattern.test(text));
-            },
-            
-            // Security Event Monitoring - TEMPORARILY DISABLED FOR DEBUGGING
-            setupSecurityMonitoring: function() {
-                console.log('🛡️ Security monitoring initialized (monitoring mode only)');
-                // Temporarily disabled to fix modal graphics issue
-                // All monitoring features commented out until graphics issue is resolved
-                /*
-                // Monitor for script injection attempts
-                const originalCreateElement = document.createElement;
-                document.createElement = function(tagName) {
-                    const element = originalCreateElement.call(document, tagName);
-                    if (tagName.toLowerCase() === 'script') {
-                        trackEvent('script_injection_attempt', { source: 'createElement' });
-                    }
-                    return element;
-                };
-                
-                // Monitor for suspicious activity
-                window.addEventListener('error', (e) => {
-                    if (e.message.includes('Script error') || e.message.includes('CSP')) {
-                        trackEvent('security_error', { 
-                            message: e.message,
-                            filename: e.filename,
-                            source: 'error_monitoring'
-                        });
-                    }
-                });
-                */
-            },
-            
-            // HTTPS Enforcement
-            enforceHTTPS: function() {
-                if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-                    trackEvent('http_redirect_attempted', { original_url: location.href });
-                    location.replace('https:' + window.location.href.substring(window.location.protocol.length));
-                }
-            },
-            
-            // Privacy Protection - TEMPORARILY DISABLED FOR DEBUGGING
-            setupPrivacyProtection: function() {
-                console.log('🛡️ Privacy protection initialized (monitoring mode only)');
-                // Temporarily disabled to fix modal graphics issue
-                /*
-                // Disable right-click context menu on sensitive areas
-                document.addEventListener('contextmenu', function(e) {
-                    if (e.target.closest('.sensitive-content')) {
-                        e.preventDefault();
-                        trackEvent('context_menu_blocked', { element: e.target.tagName });
-                    }
-                });
-                
-                // Disable text selection on sensitive content
-                const style = document.createElement('style');
-                style.innerHTML = `
-                    .sensitive-content {
-                        -webkit-user-select: none;
-                        -moz-user-select: none;
-                        -ms-user-select: none;
-                        user-select: none;
-                    }
-                `;
-                document.head.appendChild(style);
-                */
-            },
-            
-            // Enhanced Form Protection
-            setupFormProtection: function() {
-                document.addEventListener('submit', (e) => {
-                    const form = e.target;
-                    if (form.tagName === 'FORM') {
-                        e.preventDefault();
-                        this.processSecureForm(form);
-                    }
-                });
-            },
-            
-            // Secure Form Processing
-            processSecureForm: function(form) {
-                const formData = new FormData(form);
-                const data = {};
-                
-                // Extract and sanitize form data
-                for (let [key, value] of formData.entries()) {
-                    data[key] = this.sanitizeInput(value);
-                }
-                
-                // Add timing data for bot detection
-                data.submitTime = Date.now() - (window.formStartTime || Date.now());
-                
-                // Perform security checks
-                if (this.isSpamAttempt(data)) {
-                    this.showSecurityError('Submission blocked for security reasons.');
-                    return false;
-                }
-                
-                // Process legitimate submission
-                if (form.id === 'newsletter-form' || form.className.includes('newsletter')) {
-                    this.handleNewsletterSubmission(data);
-                } else {
-                    this.handleContactSubmission(data);
-                }
-            },
-            
-            // Secure Newsletter Submission
-            handleNewsletterSubmission: function(data) {
-                if (!this.validateEmail(data.email)) {
-                    this.showError('Please enter a valid email address.');
-                    return;
-                }
-                
-                this.showSuccess('Successfully subscribed to our newsletter!');
-                trackEvent('newsletter_signup', { 
-                    email_domain: data.email.split('@')[1],
-                    source: 'secure_form'
-                });
-                
-                // Simulate secure email submission
-                this.sendSecureEmail('newsletter', data);
-            },
-            
-            // Secure Contact Form Submission
-            handleContactSubmission: function(data) {
-                const requiredFields = ['name', 'email', 'message'];
-                const missing = requiredFields.filter(field => !data[field]);
-                
-                if (missing.length > 0) {
-                    this.showError(`Please fill in all required fields: ${missing.join(', ')}`);
-                    return;
-                }
-                
-                if (!this.validateEmail(data.email)) {
-                    this.showError('Please enter a valid email address.');
-                    return;
-                }
-                
-                this.showSuccess('Message sent successfully! We\'ll get back to you soon.');
-                trackEvent('contact_form_submitted', { 
-                    email_domain: data.email.split('@')[1],
-                    message_length: data.message.length,
-                    source: 'secure_form'
-                });
-                
-                this.sendSecureEmail('contact', data);
-            },
-            
-            // Secure Email Sending
-            sendSecureEmail: function(type, data) {
-                const subject = type === 'newsletter' 
-                    ? 'Newsletter Subscription - Strategia-X'
-                    : `New Contact Form Submission - ${data.name}`;
-                
-                const body = type === 'newsletter'
-                    ? `New newsletter subscription:\n\nEmail: ${data.email}\nTimestamp: ${new Date().toISOString()}\nSource: Strategia-X Website`
-                    : `New contact form submission:\n\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}\n\nTimestamp: ${new Date().toISOString()}\nSource: Strategia-X Website Security System`;
-                
-                const mailtoLink = `mailto:info@strategia-x.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
-                // Open secure email client
-                window.open(mailtoLink, '_blank');
-                
-                trackEvent('secure_email_generated', { type: type });
-            },
-            
-            // User Feedback Systems
-            showSuccess: function(message) {
-                this.showNotification(message, 'success');
-            },
-            
-            showError: function(message) {
-                this.showNotification(message, 'error');
-            },
-            
-            showSecurityError: function(message) {
-                this.showNotification('🛡️ ' + message, 'security-error');
-                trackEvent('security_error_shown', { message: message });
-            },
-            
-            showNotification: function(message, type) {
-                const notification = document.createElement('div');
-                notification.className = `security-notification ${type}`;
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    padding: 15px 20px;
-                    border-radius: 8px;
-                    color: white;
-                    font-weight: 600;
-                    z-index: 10000;
-                    max-width: 400px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                    backdrop-filter: blur(10px);
-                    transition: all 0.3s ease;
-                    ${type === 'success' ? 'background: linear-gradient(135deg, #10b981, #059669);' : 
-                      type === 'security-error' ? 'background: linear-gradient(135deg, #dc2626, #991b1b);' :
-                      'background: linear-gradient(135deg, #f59e0b, #d97706);'}
-                `;
-                notification.textContent = message;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(100%)';
-                    notification.style.opacity = '0';
-                    setTimeout(() => notification.remove(), 300);
-                }, 4000);
-            }
-        };
     </script>
     
     <!-- Structured Data for SEO -->
@@ -511,7 +207,6 @@
     </script>
     
     <style>
-        /* Critical CSS - Above the fold content loads instantly */
         * {
             margin: 0;
             padding: 0;
@@ -526,39 +221,6 @@
             --mid-gray: #86868b;
         }
 
-        /* Performance Optimizations */
-        img {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-        
-        .service-card, .industry-item, .case-study-card {
-            will-change: transform;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-        }
-        
-        /* Lazy Loading Placeholder */
-        .lazy-load {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .lazy-load.loaded {
-            opacity: 1;
-        }
-        
-        .image-placeholder {
-            background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
-            background-size: 400% 100%;
-            animation: shimmer 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-
         html, body {
             height: 100%;
         }
@@ -566,13 +228,11 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             color: var(--dark-gray);
             background: #fff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            font-display: swap;
         }
 
         /* Main content wrapper */
@@ -1786,818 +1446,47 @@
                 padding: 1rem 1.5rem;
             }
         }
-
-        /* Performance Optimizations */
-        
-        /* Reduce paint and layout thrashing */
-        .service-card:hover,
-        .industry-item:hover,
-        .case-study-card:hover,
-        .faq-item:hover {
-            transform: translateY(-8px) translateZ(0);
-            backface-visibility: hidden;
-            will-change: transform, box-shadow;
-        }
-        
-        /* GPU-accelerated animations */
-        .btn-primary,
-        .btn-secondary,
-        .newsletter-btn,
-        .footer-newsletter-btn {
-            transform: translateZ(0);
-            will-change: transform, background-color;
-        }
-        
-        .btn-primary:hover,
-        .newsletter-btn:hover,
-        .footer-newsletter-btn:hover {
-            transform: translateY(-2px) translateZ(0);
-        }
-        
-        /* Smooth scroll performance */
-        @media (prefers-reduced-motion: no-preference) {
-            html {
-                scroll-behavior: smooth;
-            }
-        }
-        
-        /* Loading state optimizations */
-        .page {
-            opacity: 1;
-            transition: opacity 0.2s ease;
-        }
-        
-        .page:not(.active) {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        /* Image loading optimization */
-        img {
-            content-visibility: auto;
-            contain: layout style paint;
-        }
-        
-        /* Performance monitoring indicator */
-        .performance-indicator {
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            background: rgba(220, 38, 38, 0.9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .performance-indicator.show {
-            opacity: 1;
-        }
-        
-        .performance-indicator.fast {
-            background: rgba(34, 197, 94, 0.9);
-        }
-        
-        .performance-indicator.average {
-            background: rgba(251, 191, 36, 0.9);
-        }
-        
-        .performance-indicator.slow {
-            background: rgba(239, 68, 68, 0.9);
-        }
-        
-        /* Optimize font loading */
-        @font-face {
-            font-family: 'SF Pro Display';
-            src: local('SF Pro Display'), local('SFProDisplay-Regular');
-            font-display: swap;
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        /* Critical CSS end - rest loads async */
-        
-        /* Advanced Micro-Interactions & Animations */
-        
-        /* Smooth page transitions */
-        .page {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-        
-        .page.active {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        
-        /* Enhanced button interactions */
-        .btn-primary,
-        .btn-secondary {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(220, 38, 38, 0.4);
-        }
-        
-        .btn-secondary:hover {
-            transform: translateX(5px);
-            color: #b91c1c;
-        }
-        
-        /* Animated service cards */
-        .service-card {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--red), #ff4444);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.15);
-        }
-        
-        .service-card:hover .home-service-image,
-        .service-card:hover .service-image {
-            transform: scale(1.08);
-            filter: brightness(1.1);
-        }
-        
-        .service-card:hover h3 {
-            color: var(--red);
-            transform: translateY(-2px);
-        }
-        
-        /* Enhanced industry items */
-        .industry-item {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-        
-        .industry-item:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .industry-item:hover .industry-image {
-            transform: rotate(5deg) scale(1.1);
-            filter: brightness(1.2) saturate(1.3);
-        }
-        
-        .industry-item:hover h4 {
-            color: var(--red);
-            transform: translateY(-2px);
-        }
-        
-        /* Animated newsletter section */
-        .newsletter-input-group {
-            transition: all 0.3s ease;
-        }
-        
-        .newsletter-input-group:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
-        }
-        
-        .newsletter-input-group input:focus {
-            transform: scale(1.05);
-            transition: transform 0.2s ease;
-        }
-        
-        /* Bouncing newsletter benefits */
-        .benefit {
-            transition: all 0.3s ease;
-        }
-        
-        .benefit:hover {
-            transform: translateY(-5px) scale(1.1);
-        }
-        
-        .benefit-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .benefit:hover .benefit-icon {
-            animation: bounce 0.6s ease-in-out;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 60%, 100% { transform: translateY(0) scale(1); }
-            40% { transform: translateY(-10px) scale(1.2); }
-            80% { transform: translateY(-5px) scale(1.1); }
-        }
-        
-        /* Enhanced FAQ animations */
-        .faq-question {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .faq-question:hover {
-            transform: translateX(5px);
-            background: linear-gradient(90deg, rgba(220, 38, 38, 0.05), rgba(220, 38, 38, 0.02));
-        }
-        
-        .faq-icon {
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg) scale(1.2);
-            color: #b91c1c;
-        }
-        
-        .faq-answer {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .faq-answer.open {
-            animation: slideDown 0.5s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Scroll reveal animations */
-        .reveal-animation {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-animation.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Staggered animations for grids */
-        .services-grid .service-card,
-        .industries-grid .industry-item,
-        .case-studies-grid .case-study-card {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .services-grid .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .services-grid .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .services-grid .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .services-grid .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .services-grid .service-card:nth-child(6) { animation-delay: 0.6s; }
-        
-        .industries-grid .industry-item:nth-child(1) { animation-delay: 0.1s; }
-        .industries-grid .industry-item:nth-child(2) { animation-delay: 0.2s; }
-        .industries-grid .industry-item:nth-child(3) { animation-delay: 0.3s; }
-        .industries-grid .industry-item:nth-child(4) { animation-delay: 0.4s; }
-        .industries-grid .industry-item:nth-child(5) { animation-delay: 0.5s; }
-        .industries-grid .industry-item:nth-child(6) { animation-delay: 0.6s; }
-        .industries-grid .industry-item:nth-child(7) { animation-delay: 0.7s; }
-        .industries-grid .industry-item:nth-child(8) { animation-delay: 0.8s; }
-        .industries-grid .industry-item:nth-child(9) { animation-delay: 0.9s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Enhanced logo animations */
-        .hero-main-logo {
-            animation: logoEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            opacity: 0;
-            transform: scale(0.8) translateY(20px);
-        }
-        
-        @keyframes logoEntrance {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) translateY(20px);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.05) translateY(0);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-        
-        .header-logo {
-            transition: all 0.3s ease;
-        }
-        
-        .header-logo:hover {
-            transform: scale(1.05) rotate(-1deg);
-            filter: brightness(1.1);
-        }
-        
-        /* Case study card enhancements */
-        .case-study-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        
-        .case-study-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 16px;
-            pointer-events: none;
-        }
-        
-        .case-study-card:hover::after {
-            opacity: 1;
-        }
-        
-        .case-study-card:hover .metric {
-            transform: translateY(-2px);
-            background: rgba(220, 38, 38, 0.2);
-        }
-        
-        .metric-number {
-            transition: all 0.3s ease;
-        }
-        
-        .case-study-card:hover .metric-number {
-            transform: scale(1.1);
-        }
-        
-        /* Navigation hover effects */
-        .nav-links a {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--red);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-        
-        /* Footer link animations */
-        .footer-section a {
-            transition: all 0.2s ease;
-        }
-        
-        .footer-section a:hover {
-            transform: translateX(5px);
-            color: var(--red);
-        }
-        
-        /* Performance indicator enhanced animation */
-        .performance-indicator {
-            animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        /* Loading state animations */
-        .loading-pulse {
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* Hover glow effects */
-        .glow-on-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .glow-on-hover:hover {
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
-        }
-        
-        /* Reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
-        /* ACCESSIBILITY ENHANCEMENTS */
-        
-        /* Enhanced focus indicators for keyboard navigation */
-        *:focus {
-            outline: 3px solid var(--red);
-            outline-offset: 2px;
-            box-shadow: 0 0 0 1px white, 0 0 0 4px var(--red);
-        }
-        
-        .btn-primary:focus,
-        .btn-secondary:focus,
-        .newsletter-btn:focus,
-        .footer-newsletter-btn:focus {
-            outline: 3px solid white;
-            outline-offset: 2px;
-            box-shadow: 0 0 0 1px var(--red), 0 0 0 4px white, 0 0 20px rgba(220, 38, 38, 0.5);
-        }
-        
-        .nav-links a:focus {
-            outline: 2px solid var(--red);
-            outline-offset: 4px;
-            background: rgba(220, 38, 38, 0.1);
-            border-radius: 4px;
-        }
-        
-        /* Skip navigation link for keyboard users */
-        .skip-nav {
-            position: absolute;
-            top: -40px;
-            left: 20px;
-            background: var(--red);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            z-index: 10000;
-            transition: top 0.3s;
-        }
-        
-        .skip-nav:focus {
-            top: 20px;
-        }
-        
-        /* Enhanced contrast for better readability */
-        .hero-description,
-        .section-description {
-            color: #6b7280;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        .dark .hero-description,
-        .dark .section-description {
-            color: #d1d5db;
-        }
-        
-        /* Improved link contrast and hover states */
-        a {
-            color: var(--red);
-            transition: all 0.2s ease;
-        }
-        
-        a:hover,
-        a:focus {
-            color: #b91c1c;
-            text-decoration: underline;
-        }
-        
-        /* Enhanced form accessibility */
-        input,
-        textarea,
-        select {
-            border: 2px solid #e5e7eb;
-            transition: border-color 0.2s ease;
-        }
-        
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: var(--red);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-        }
-        
-        /* Screen reader only content */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        .sr-only:focus {
-            position: static;
-            width: auto;
-            height: auto;
-            padding: 0.5rem 1rem;
-            margin: 0;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-            background: var(--red);
-            color: white;
-            border-radius: 4px;
-        }
-        
-        /* Enhanced button accessibility */
-        button,
-        .btn-primary,
-        .btn-secondary {
-            min-height: 44px;
-            min-width: 44px;
-            cursor: pointer;
-        }
-        
-        button:disabled,
-        .btn-primary:disabled,
-        .btn-secondary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            :root {
-                --black: #000000;
-                --red: #dc2626;
-                --dark-gray: #000000;
-                --light-gray: #ffffff;
-                --mid-gray: #666666;
-            }
-            
-            .service-card,
-            .industry-item,
-            .case-study-card,
-            .faq-item {
-                border: 2px solid #000000;
-            }
-            
-            .hero,
-            .content-section.dark {
-                background: #000000;
-                color: #ffffff;
-            }
-        }
-        
-        /* Improved color contrast ratios */
-        .case-study-description,
-        .faq-answer p,
-        .newsletter-privacy {
-            color: #4b5563;
-            font-size: 1rem;
-        }
-        
-        .dark .case-study-description,
-        .dark .faq-answer p,
-        .newsletter-section .newsletter-privacy {
-            color: #d1d5db;
-        }
-        
-        /* Enhanced interactive elements */
-        .service-card,
-        .industry-item,
-        .case-study-card {
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .service-card:focus,
-        .industry-item:focus,
-        .case-study-card:focus {
-            outline: 3px solid var(--red);
-            outline-offset: 2px;
-        }
-        
-        /* Keyboard navigation for FAQ items */
-        .faq-question {
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            text-align: left;
-        }
-        
-        .faq-question:focus {
-            outline: 2px solid var(--red);
-            outline-offset: -2px;
-            background: rgba(220, 38, 38, 0.05);
-        }
-        
-        /* Enhanced modal accessibility */
-        .image-modal {
-            display: none;
-        }
-        
-        .image-modal[aria-hidden="false"] {
-            display: block;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-close:focus {
-            outline: 2px solid white;
-            outline-offset: 2px;
-        }
-        
-        /* Improved navigation accessibility */
-        .nav-links {
-            list-style: none;
-        }
-        
-        .nav-links li {
-            display: inline-block;
-        }
-        
-        /* Enhanced footer accessibility */
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Performance indicator accessibility */
-        .performance-indicator {
-            role: status;
-            aria-live: polite;
-        }
-        
-        /* Responsive text scaling */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: clamp(2.5rem, 8vw, 4rem);
-                line-height: 1.1;
-            }
-            
-            .section-title {
-                font-size: clamp(1.8rem, 6vw, 2.5rem);
-            }
-        }
-        
-        /* Dark mode preference support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-primary: #ffffff;
-                --text-secondary: #d1d5db;
-                --bg-primary: #111111;
-                --bg-secondary: #1f1f1f;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Skip Navigation for Keyboard Users -->
-    <a href="#main-content" class="skip-nav">Skip to main content</a>
-    
     <!-- Navigation -->
-    <nav role="navigation" aria-label="Main navigation">
+    <nav>
         <div class="nav-container">
-            <a href="#" class="logo" onclick="showPage('home')" aria-label="Strategia-X Home">
-                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Header_Main1.png" 
-                     alt="Strategia-X - Elite IT and Business Operations Consulting" 
-                     class="header-logo">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/Header_Main1.png" alt="Strategia-X Header Logo" class="header-logo">
             </a>
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a role="menuitem" onclick="showPage('home')" tabindex="0" aria-label="Navigate to Home page">Home</a></li>
-                <li role="none"><a role="menuitem" onclick="showPage('services')" tabindex="0" aria-label="Navigate to Services page">Services</a></li>
-                <li role="none"><a role="menuitem" onclick="showPage('about')" tabindex="0" aria-label="Navigate to About page">About</a></li>
-                <li role="none"><a role="menuitem" onclick="showPage('contact')" tabindex="0" aria-label="Navigate to Contact page">Contact</a></li>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('services')">Services</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="main-wrapper" id="main-content" role="main">
+    <div class="main-wrapper">
         <!-- Home Page -->
         <div id="home" class="page active">
             <!-- Hero Section -->
-            <section class="hero" role="banner" aria-labelledby="hero-title">
-                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png" 
-                     alt="Strategia-X - Strategic Excellence Engineered" 
-                     class="hero-main-logo">
+            <section class="hero">
+                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/STX1-final.png" alt="Strategia-X Logo" class="hero-main-logo">
                 <div class="hero-eyebrow">Elite Consulting</div>
-                <h1 id="hero-title" style="color: white;">Strategic.<br>Excellence.<br>Engineered.</h1>
+                <h1 style="color: white;">Strategic.<br>Excellence.<br>Engineered.</h1>
                 <p class="hero-subtitle">IT & Business Operations Excellence</p>
                 <p class="hero-description">
                     Transforming businesses through strategic technology implementation, 
                     operational excellence, and innovative engineering solutions.
                 </p>
-                <div class="hero-cta" role="group" aria-label="Get started actions">
-                    <a href="mailto:info@strategia-x.com" 
-                       class="btn-primary" 
-                       aria-label="Start your transformation - Send email to Strategia-X">
-                       Start Your Transformation
-                    </a>
-                    <a onclick="showPage('services')" 
-                       class="btn-secondary" 
-                       aria-label="Explore our consulting services"
-                       tabindex="0"
-                       role="button">
-                       Explore Services
-                    </a>
+                <div class="hero-cta">
+                    <a href="mailto:info@strategia-x.com" class="btn-primary">Start Your Transformation</a>
+                    <a onclick="showPage('services')" class="btn-secondary">Explore Services</a>
                 </div>
             </section>
 
             <!-- Heritage & Mission -->
-            <section class="content-section" aria-labelledby="partnership-title">
+            <section class="content-section">
                 <div class="section-eyebrow">PARTNERSHIP</div>
-                <h2 id="partnership-title" class="section-title">Personal Excellence & Direct Partnership</h2>
+                <h2 class="section-title">Personal Excellence & Direct Partnership</h2>
                 <p class="section-description">
                     <strong>As a dedicated solo consultant, you work directly with me - the owner, strategist, and implementer.</strong> 
                     No middlemen, no junior staff, no diluted vision. Just personalized expertise, unwavering commitment to your success, 
@@ -2665,61 +1554,38 @@
             </section>
 
             <!-- Newsletter Signup Section -->
-            <section class="newsletter-section" aria-labelledby="newsletter-title" role="region">
+            <section class="newsletter-section">
                 <div class="newsletter-container">
                     <div class="newsletter-content">
                         <div class="section-eyebrow" style="color: var(--red);">STRATEGIC INSIGHTS</div>
-                        <h2 id="newsletter-title">Stay Ahead of the Curve</h2>
+                        <h2>Stay Ahead of the Curve</h2>
                         <p class="newsletter-description">
                             Get exclusive strategic insights, industry trends, and transformation tips delivered directly to your inbox. 
                             Join forward-thinking leaders who are shaping the future of their organizations.
                         </p>
                         
-                        <form class="newsletter-form" 
-                              onsubmit="subscribeNewsletter(event)" 
-                              aria-labelledby="newsletter-title"
-                              data-security-enabled="true"
-                              novalidate>
-                            <!-- Honeypot field for bot detection (hidden) -->
-                            <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
-                            
-                            <div class="newsletter-input-group" role="group" aria-label="Newsletter subscription form">
-                                <label for="newsletterEmail" class="sr-only">Email address for newsletter subscription</label>
-                                <input type="email" 
-                                       id="newsletterEmail"
-                                       name="email"
-                                       placeholder="Enter your email address" 
-                                       aria-label="Enter your email address for strategic insights newsletter"
-                                       aria-required="true"
-                                       aria-describedby="newsletter-benefits newsletter-privacy"
-                                       data-security-validate="email"
-                                       required>
-                                <button type="submit" 
-                                        class="newsletter-btn"
-                                        aria-label="Subscribe to strategic insights newsletter">
-                                        Subscribe
-                                </button>
+                        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                            <div class="newsletter-input-group">
+                                <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                                <button type="submit" class="newsletter-btn">Subscribe</button>
                             </div>
-                            <div class="newsletter-benefits" 
-                                 id="newsletter-benefits" 
-                                 role="list" 
-                                 aria-label="Newsletter benefits">
-                                <div class="benefit" role="listitem">
-                                    <span class="benefit-icon" aria-label="Chart trending up">📈</span>
+                            <div class="newsletter-benefits">
+                                <div class="benefit">
+                                    <span class="benefit-icon">📈</span>
                                     <span>Strategic Insights</span>
                                 </div>
-                                <div class="benefit" role="listitem">
-                                    <span class="benefit-icon" aria-label="Rocket">🚀</span>
+                                <div class="benefit">
+                                    <span class="benefit-icon">🚀</span>
                                     <span>Industry Trends</span>
                                 </div>
-                                <div class="benefit" role="listitem">
-                                    <span class="benefit-icon" aria-label="Light bulb">💡</span>
+                                <div class="benefit">
+                                    <span class="benefit-icon">💡</span>
                                     <span>Transformation Tips</span>
                                 </div>
                             </div>
                         </form>
                         
-                        <p class="newsletter-privacy" id="newsletter-privacy">
+                        <p class="newsletter-privacy">
                             No spam, ever. Unsubscribe anytime. Your strategic advantage starts here.
                         </p>
                     </div>
@@ -3256,17 +2122,8 @@
             <div class="footer-newsletter-content">
                 <h3>Strategic Insights Newsletter</h3>
                 <p>Stay ahead with exclusive industry trends and transformation tips.</p>
-                <form class="footer-newsletter-form" 
-                      onsubmit="subscribeNewsletter(event)"
-                      data-security-enabled="true">
-                    <!-- Honeypot field for bot detection (hidden) -->
-                    <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    
-                    <input type="email" 
-                           name="email"
-                           placeholder="Your email address" 
-                           data-security-validate="email"
-                           required>
+                <form class="footer-newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Your email address" required>
                     <button type="submit" class="footer-newsletter-btn">Subscribe</button>
                 </form>
             </div>
@@ -3284,32 +2141,11 @@
         </div>
     </footer>
 
-    <!-- Performance Indicator -->
-    <div id="performanceIndicator" class="performance-indicator">
-        <span id="performanceText">Loading...</span>
-    </div>
-
     <!-- Image Modal -->
-    <div id="imageModal" 
-         class="image-modal" 
-         role="dialog" 
-         aria-modal="true" 
-         aria-labelledby="modalImage" 
-         aria-hidden="true"
-         tabindex="-1">
+    <div id="imageModal" class="image-modal">
         <div class="modal-content">
-            <button class="modal-close" 
-                    onclick="closeImageModal()" 
-                    aria-label="Close image modal"
-                    type="button">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-            </button>
-            <img id="modalImage" 
-                 class="modal-image" 
-                 src="" 
-                 alt=""
-                 role="img">
+            <button class="modal-close" onclick="closeImageModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
         </div>
     </div>
 
@@ -3500,63 +2336,79 @@
             }
         }
 
-        // Newsletter Subscription with Enhanced Security
+        // Newsletter Subscription with Analytics tracking
         function subscribeNewsletter(event) {
             event.preventDefault();
             
-            // Let the security system handle the form submission
-            if (window.StrategiaXSecurity) {
-                window.StrategiaXSecurity.processSecureForm(event.target);
-            } else {
-                console.warn('Security system not initialized');
-                // Fallback to basic processing
-                const formData = new FormData(event.target);
-                const email = formData.get('email');
-                
-                if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    alert('Thank you for subscribing to our newsletter!');
-                    event.target.reset();
-                } else {
-                    alert('Please enter a valid email address.');
-                }
+            const email = document.getElementById('newsletterEmail').value;
+            const button = event.target.querySelector('.newsletter-btn') || event.target.querySelector('.footer-newsletter-btn');
+            const originalText = button.textContent;
+            const isFooterForm = event.target.classList.contains('footer-newsletter-form');
+            
+            // Track newsletter signup attempt
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('newsletter_signup_attempt', {
+                    form_location: isFooterForm ? 'footer' : 'home_hero',
+                    email_domain: email.split('@')[1] || 'unknown'
+                });
             }
+            
+            // Show loading state
+            button.textContent = 'Subscribing...';
+            button.disabled = true;
+            
+            // Simulate subscription process
+            setTimeout(() => {
+                // Create mailto link with subscription details
+                const subject = encodeURIComponent('Newsletter Subscription - Strategia-X Strategic Insights');
+                const body = encodeURIComponent(`Hello,
+
+I would like to subscribe to the Strategia-X Strategic Insights newsletter.
+
+Email: ${email}
+
+Please add me to your mailing list for:
+- Strategic insights and industry trends
+- Transformation tips and best practices  
+- Exclusive thought leadership content
+
+Thank you,
+${email.split('@')[0]}`);
+                
+                // Track successful newsletter signup
+                if (typeof trackEvent !== 'undefined') {
+                    trackEvent('newsletter_signup_success', {
+                        form_location: isFooterForm ? 'footer' : 'home_hero',
+                        email_domain: email.split('@')[1] || 'unknown',
+                        value: 1
+                    });
+                }
+                
+                // Open email client
+                window.location.href = `mailto:info@strategia-x.com?subject=${subject}&body=${body}`;
+                
+                // Show success state
+                button.textContent = 'Subscribed!';
+                button.style.background = '#10b981';
+                
+                // Reset form
+                const emailInput = isFooterForm ? 
+                    event.target.querySelector('input[type="email"]') : 
+                    document.getElementById('newsletterEmail');
+                emailInput.value = '';
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.disabled = false;
+                }, 3000);
+                
+            }, 1000);
         }
 
         // Initialize Analytics Event Tracking when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Security System FIRST
-            if (window.StrategiaXSecurity) {
-                window.StrategiaXSecurity.init();
-                
-                // Set form start time for timing-based bot detection
-                window.formStartTime = Date.now();
-                
-                console.log('🔒 Strategia-X website loaded with enterprise security enabled');
-            }
-            
-            // FORCE ALL IMAGES TO DISPLAY IMMEDIATELY - DEBUG FIX
-            setTimeout(() => {
-                const allImages = document.querySelectorAll('img');
-                console.log('🖼️ Force loading', allImages.length, 'images...');
-                
-                allImages.forEach((img) => {
-                    // Remove any classes that might hide images
-                    img.classList.remove('lazy-load', 'image-placeholder');
-                    img.style.opacity = '1';
-                    img.style.visibility = 'visible';
-                    img.style.display = 'block';
-                    
-                    // Force reload if src exists
-                    if (img.src && img.src.includes('github')) {
-                        const originalSrc = img.src;
-                        img.src = '';
-                        img.src = originalSrc;
-                    }
-                    
-                    console.log('📷 Processing image:', img.alt || img.src);
-                });
-            }, 100);
-            
             // Track email clicks
             document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -3672,794 +2524,6 @@
                 });
             });
         });
-
-        // Performance Optimization Functions
-        
-        // Lazy Loading Images with Intersection Observer
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    
-                    // Create placeholder while loading
-                    img.classList.add('image-placeholder');
-                    
-                    // Load the actual image
-                    const tempImg = new Image();
-                    tempImg.onload = () => {
-                        img.src = tempImg.src;
-                        img.classList.remove('image-placeholder');
-                        img.classList.add('loaded');
-                        
-                        // Track image load performance
-                        if (typeof trackEvent !== 'undefined') {
-                            trackEvent('image_loaded', {
-                                image_name: img.alt || 'unknown',
-                                load_time: Date.now() - img.dataset.loadStart
-                            });
-                        }
-                    };
-                    
-                    img.dataset.loadStart = Date.now();
-                    tempImg.src = img.dataset.src || img.src;
-                    observer.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: '50px 0px',
-            threshold: 0.1
-        });
-
-        // Performance Monitoring with Visual Feedback
-        function trackPerformanceMetrics() {
-            if ('performance' in window && performance.getEntriesByType) {
-                setTimeout(() => {
-                    try {
-                        const navigation = performance.getEntriesByType('navigation')[0];
-                        const paint = performance.getEntriesByType('paint');
-                        
-                        if (navigation) {
-                            const metrics = {
-                                // Core Web Vitals tracking
-                                domContentLoaded: Math.round(navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart),
-                                loadComplete: Math.round(navigation.loadEventEnd - navigation.loadEventStart),
-                                firstPaint: Math.round(paint.find(p => p.name === 'first-paint')?.startTime || 0),
-                                firstContentfulPaint: Math.round(paint.find(p => p.name === 'first-contentful-paint')?.startTime || 0),
-                                totalLoadTime: Math.round(navigation.loadEventEnd - navigation.fetchStart)
-                            };
-                            
-                            // Show performance indicator to user
-                            showPerformanceIndicator(metrics.totalLoadTime);
-                            
-                            // Track performance in Analytics
-                            if (typeof trackEvent !== 'undefined') {
-                                trackEvent('performance_metrics', {
-                                    dom_load_time: metrics.domContentLoaded,
-                                    total_load_time: metrics.totalLoadTime,
-                                    first_paint: metrics.firstPaint,
-                                    first_contentful_paint: metrics.firstContentfulPaint,
-                                    page_load_category: metrics.totalLoadTime < 2000 ? 'fast' : 
-                                                      metrics.totalLoadTime < 4000 ? 'average' : 'slow'
-                                });
-                            }
-                            
-                            // Log performance for development
-                            console.log('🚀 Strategia-X Performance Metrics:', metrics);
-                        }
-                    } catch (e) {
-                        console.warn('Performance monitoring error:', e);
-                    }
-                }, 1000);
-            }
-        }
-
-        // Show Performance Indicator to User
-        function showPerformanceIndicator(loadTime) {
-            const indicator = document.getElementById('performanceIndicator');
-            const text = document.getElementById('performanceText');
-            
-            if (!indicator || !text) return;
-            
-            let message = '';
-            let category = '';
-            
-            if (loadTime < 2000) {
-                message = `⚡ Ultra Fast: ${(loadTime/1000).toFixed(1)}s`;
-                category = 'fast';
-            } else if (loadTime < 4000) {
-                message = `🚀 Fast: ${(loadTime/1000).toFixed(1)}s`;
-                category = 'average';
-            } else {
-                message = `📈 Optimizing: ${(loadTime/1000).toFixed(1)}s`;
-                category = 'slow';
-            }
-            
-            text.textContent = message;
-            indicator.className = `performance-indicator show ${category}`;
-            
-            // Hide after 4 seconds
-            setTimeout(() => {
-                indicator.classList.remove('show');
-            }, 4000);
-        }
-
-        // Resource Loading Optimization
-        function optimizeResourceLoading() {
-            // Preload next likely page resources
-            const preloadNext = {
-                home: ['services', 'about'],
-                services: ['contact', 'about'],
-                about: ['contact', 'services'],
-                contact: ['services', 'about']
-            };
-            
-            const currentPage = document.querySelector('.page.active')?.id || 'home';
-            const nextPages = preloadNext[currentPage] || [];
-            
-            nextPages.forEach((page, index) => {
-                setTimeout(() => {
-                    const link = document.createElement('link');
-                    link.rel = 'prefetch';
-                    link.as = 'document';
-                    link.href = `#${page}`;
-                    document.head.appendChild(link);
-                }, index * 200);
-            });
-        }
-
-        // Image Loading Optimization
-        function setupImageOptimization() {
-            const images = document.querySelectorAll('img');
-            
-            images.forEach((img, index) => {
-                // Add performance attributes
-                img.loading = img.loading || 'lazy';
-                img.decoding = 'async';
-                
-                // Add lazy loading class
-                if (!img.classList.contains('hero-main-logo') && !img.classList.contains('header-logo')) {
-                    img.classList.add('lazy-load');
-                }
-                
-                // Error handling for failed loads
-                img.onerror = function() {
-                    console.warn('Failed to load image:', this.src);
-                    this.style.opacity = '0.5';
-                    this.style.filter = 'grayscale(100%)';
-                    
-                    if (typeof trackEvent !== 'undefined') {
-                        trackEvent('image_error', {
-                            image_url: this.src,
-                            image_alt: this.alt || 'unknown',
-                            image_index: index
-                        });
-                    }
-                };
-                
-                // Track successful loads
-                img.onload = function() {
-                    this.classList.add('loaded');
-                };
-            });
-        }
-
-        // Critical Resource Preloading
-        function preloadCriticalResources() {
-            const criticalImages = [
-                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/distribution.png',
-                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/health_sciences.png',
-                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid/industrial.png',
-                'https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Home.Grid_2/IT%20Strat%20Arch.png'
-            ];
-            
-            criticalImages.forEach((src, index) => {
-                setTimeout(() => {
-                    const link = document.createElement('link');
-                    link.rel = 'preload';
-                    link.as = 'image';
-                    link.href = src;
-                    document.head.appendChild(link);
-                }, index * 150); // Stagger preloading
-            });
-        }
-
-        // Initialize Performance Optimizations on Load
-        window.addEventListener('load', function() {
-            // Track performance metrics
-            trackPerformanceMetrics();
-            
-            // Setup image optimization
-            setupImageOptimization();
-            
-            // Preload critical resources
-            preloadCriticalResources();
-            
-            // Optimize resource loading
-            optimizeResourceLoading();
-            
-            console.log('🚀 Performance optimizations initialized!');
-        });
-
-        // Advanced Micro-Interactions & Animation System
-        
-        // Scroll-triggered reveal animations
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    
-                    // Track scroll engagement
-                    if (typeof trackEvent !== 'undefined') {
-                        trackEvent('scroll_reveal', {
-                            element_type: entry.target.tagName.toLowerCase(),
-                            section_name: entry.target.closest('section')?.querySelector('h1, h2')?.textContent || 'unknown'
-                        });
-                    }
-                }
-            });
-        }, {
-            threshold: 0.2,
-            rootMargin: '-50px 0px'
-        });
-
-        // Enhanced button interaction effects
-        function addButtonMicroInteractions() {
-            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-                // Ripple effect on click
-                button.addEventListener('click', function(e) {
-                    if (this.querySelector('.ripple')) return;
-                    
-                    const ripple = document.createElement('span');
-                    ripple.className = 'ripple';
-                    ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255,255,255,0.6);
-                        transform: scale(0);
-                        animation: ripple-effect 0.6s linear;
-                        pointer-events: none;
-                    `;
-                    
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    
-                    this.style.position = 'relative';
-                    this.style.overflow = 'hidden';
-                    this.appendChild(ripple);
-                    
-                    setTimeout(() => ripple.remove(), 600);
-                });
-                
-                // Enhanced hover feedback
-                button.addEventListener('mouseenter', function() {
-                    if (typeof trackEvent !== 'undefined') {
-                        trackEvent('button_hover', {
-                            button_text: this.textContent.trim(),
-                            button_type: this.className.includes('primary') ? 'primary' : 'secondary'
-                        });
-                    }
-                });
-            });
-            
-            // Add ripple animation keyframes
-            if (!document.querySelector('#ripple-style')) {
-                const style = document.createElement('style');
-                style.id = 'ripple-style';
-                style.textContent = `
-                    @keyframes ripple-effect {
-                        to {
-                            transform: scale(4);
-                            opacity: 0;
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-        }
-
-        // Enhanced service card interactions
-        function addServiceCardAnimations() {
-            document.querySelectorAll('.service-card').forEach((card, index) => {
-                // Magnetic hover effect
-                card.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    
-                    const moveX = x / rect.width * 10;
-                    const moveY = y / rect.height * 10;
-                    
-                    this.style.transform = `translateY(-12px) scale(1.02) rotateX(${moveY}deg) rotateY(${moveX}deg)`;
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = '';
-                });
-                
-                // Parallax effect on scroll
-                window.addEventListener('scroll', () => {
-                    const rect = card.getBoundingClientRect();
-                    const scrolled = window.pageYOffset;
-                    const rate = scrolled * -0.3;
-                    
-                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                        const image = card.querySelector('.home-service-image, .service-image');
-                        if (image) {
-                            image.style.transform = `translateY(${rate}px)`;
-                        }
-                    }
-                });
-            });
-        }
-
-        // Enhanced navigation animations
-        function addNavigationMicroInteractions() {
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            navLinks.forEach(link => {
-                // Magnetic effect
-                link.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    
-                    this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-                });
-                
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = '';
-                });
-                
-                // Enhanced click animation
-                link.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            });
-        }
-
-        // Floating elements animation
-        function addFloatingAnimation() {
-            const floatingElements = document.querySelectorAll('.benefit-icon');
-            
-            floatingElements.forEach((element, index) => {
-                element.style.animation = `float 3s ease-in-out infinite`;
-                element.style.animationDelay = `${index * 0.5}s`;
-            });
-            
-            // Add floating animation keyframes
-            if (!document.querySelector('#floating-style')) {
-                const style = document.createElement('style');
-                style.id = 'floating-style';
-                style.textContent = `
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px); }
-                        50% { transform: translateY(-8px); }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-        }
-
-        // Enhanced page transition effects
-        function enhancePageTransitions() {
-            const originalShowPage = window.showPage;
-            
-            window.showPage = function(pageId) {
-                // Add exit animation to current page
-                const currentPage = document.querySelector('.page.active');
-                if (currentPage) {
-                    currentPage.style.transform = 'translateX(-20px)';
-                    currentPage.style.opacity = '0';
-                }
-                
-                // Call original function after brief delay
-                setTimeout(() => {
-                    originalShowPage(pageId);
-                    
-                    // Add entrance animation to new page
-                    const newPage = document.getElementById(pageId);
-                    newPage.style.transform = 'translateX(20px)';
-                    newPage.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        newPage.style.transform = 'translateX(0)';
-                        newPage.style.opacity = '1';
-                    }, 50);
-                    
-                    // Restart animations for new page
-                    initializePageAnimations();
-                    
-                }, 150);
-            };
-        }
-
-        // Initialize animations for current page
-        function initializePageAnimations() {
-            // Reset and restart staggered animations
-            const animatedElements = document.querySelectorAll('.services-grid .service-card, .industries-grid .industry-item, .case-studies-grid .case-study-card');
-            animatedElements.forEach((element, index) => {
-                element.style.animation = 'none';
-                setTimeout(() => {
-                    element.style.animation = `fadeInUp 0.6s ease-out forwards`;
-                    element.style.animationDelay = `${(index % 6) * 0.1}s`;
-                }, 50);
-            });
-            
-            // Initialize reveal animations
-            const revealElements = document.querySelectorAll('section, .service-card, .industry-item');
-            revealElements.forEach(el => {
-                el.classList.add('reveal-animation');
-                revealObserver.observe(el);
-            });
-        }
-
-        // Scroll progress indicator
-        function addScrollProgressIndicator() {
-            const progressBar = document.createElement('div');
-            progressBar.style.cssText = `
-                position: fixed;
-                top: 60px;
-                left: 0;
-                width: 0%;
-                height: 3px;
-                background: linear-gradient(90deg, var(--red), #ff4444);
-                z-index: 9999;
-                transition: width 0.1s ease;
-                box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
-            `;
-            document.body.appendChild(progressBar);
-            
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + '%';
-            });
-        }
-
-        // Enhanced modal animations
-        function enhanceModalAnimations() {
-            const originalOpenModal = window.openImageModal;
-            const originalCloseModal = window.closeImageModal;
-            
-            window.openImageModal = function(imageSrc, imageAlt) {
-                originalOpenModal(imageSrc, imageAlt);
-                
-                const modal = document.getElementById('imageModal');
-                const modalContent = modal.querySelector('.modal-content');
-                
-                modal.style.backdropFilter = 'blur(10px)';
-                modalContent.style.transform = 'scale(0.8) translateY(50px)';
-                modalContent.style.opacity = '0';
-                modalContent.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                setTimeout(() => {
-                    modalContent.style.transform = 'scale(1) translateY(0)';
-                    modalContent.style.opacity = '1';
-                }, 50);
-            };
-            
-            window.closeImageModal = function() {
-                const modal = document.getElementById('imageModal');
-                const modalContent = modal.querySelector('.modal-content');
-                
-                modalContent.style.transform = 'scale(0.8) translateY(50px)';
-                modalContent.style.opacity = '0';
-                
-                setTimeout(() => {
-                    originalCloseModal();
-                }, 200);
-            };
-        }
-
-        // Initialize all micro-interactions on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize all animation systems
-            addButtonMicroInteractions();
-            addServiceCardAnimations();
-            addNavigationMicroInteractions();
-            addFloatingAnimation();
-            enhancePageTransitions();
-            addScrollProgressIndicator();
-            enhanceModalAnimations();
-            initializePageAnimations();
-            
-            // Initialize accessibility features
-            initializeAccessibilityFeatures();
-            
-            // Track micro-interactions initialization
-            if (typeof trackEvent !== 'undefined') {
-                trackEvent('micro_interactions_loaded', {
-                    features: ['button_ripples', 'card_animations', 'scroll_reveals', 'page_transitions', 'progress_bar', 'modal_animations', 'accessibility'],
-                    total_features: 7
-                });
-            }
-            
-            console.log('✨ Micro-interactions, animations, and accessibility initialized!');
-        });
-
-        // ACCESSIBILITY ENHANCEMENTS
-        
-        function initializeAccessibilityFeatures() {
-            setupKeyboardNavigation();
-            setupFocusManagement();
-            setupAriaLiveRegions();
-            setupAccessibleInteractions();
-            setupHighContrastDetection();
-            announcePageLoad();
-        }
-
-        // Enhanced Keyboard Navigation
-        function setupKeyboardNavigation() {
-            // Navigation menu keyboard support
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach((link, index) => {
-                link.addEventListener('keydown', function(e) {
-                    switch(e.key) {
-                        case 'ArrowRight':
-                        case 'ArrowDown':
-                            e.preventDefault();
-                            const nextIndex = (index + 1) % navLinks.length;
-                            navLinks[nextIndex].focus();
-                            break;
-                        case 'ArrowLeft':
-                        case 'ArrowUp':
-                            e.preventDefault();
-                            const prevIndex = (index - 1 + navLinks.length) % navLinks.length;
-                            navLinks[prevIndex].focus();
-                            break;
-                        case 'Home':
-                            e.preventDefault();
-                            navLinks[0].focus();
-                            break;
-                        case 'End':
-                            e.preventDefault();
-                            navLinks[navLinks.length - 1].focus();
-                            break;
-                        case 'Enter':
-                        case ' ':
-                            e.preventDefault();
-                            link.click();
-                            break;
-                    }
-                });
-            });
-
-            // FAQ keyboard support
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.setAttribute('tabindex', '0');
-                question.setAttribute('role', 'button');
-                question.setAttribute('aria-expanded', 'false');
-                
-                question.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        toggleFAQ(this);
-                    }
-                });
-            });
-
-            // Service and industry card keyboard support
-            const interactiveCards = document.querySelectorAll('.service-card, .industry-item');
-            interactiveCards.forEach(card => {
-                card.setAttribute('tabindex', '0');
-                card.setAttribute('role', 'button');
-                
-                card.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        const img = this.querySelector('img');
-                        if (img) {
-                            openImageModal(img.src, img.alt);
-                        }
-                    }
-                });
-            });
-        }
-
-        // Focus Management
-        function setupFocusManagement() {
-            let lastFocusedElement = null;
-
-            // Store last focused element before modal opens
-            const originalOpenModal = window.openImageModal;
-            window.openImageModal = function(imageSrc, imageAlt) {
-                lastFocusedElement = document.activeElement;
-                originalOpenModal(imageSrc, imageAlt);
-                
-                const modal = document.getElementById('imageModal');
-                modal.setAttribute('aria-hidden', 'false');
-                
-                // Focus the close button
-                setTimeout(() => {
-                    modal.querySelector('.modal-close').focus();
-                }, 100);
-                
-                // Trap focus within modal
-                setupFocusTrap(modal);
-            };
-
-            // Restore focus when modal closes
-            const originalCloseModal = window.closeImageModal;
-            window.closeImageModal = function() {
-                const modal = document.getElementById('imageModal');
-                modal.setAttribute('aria-hidden', 'true');
-                
-                originalCloseModal();
-                
-                if (lastFocusedElement) {
-                    lastFocusedElement.focus();
-                    lastFocusedElement = null;
-                }
-            };
-        }
-
-        // Focus Trap for Modals
-        function setupFocusTrap(modal) {
-            const focusableElements = modal.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            
-            if (focusableElements.length === 0) return;
-            
-            const firstFocusable = focusableElements[0];
-            const lastFocusable = focusableElements[focusableElements.length - 1];
-
-            modal.addEventListener('keydown', function(e) {
-                if (e.key === 'Tab') {
-                    if (e.shiftKey) {
-                        if (document.activeElement === firstFocusable) {
-                            e.preventDefault();
-                            lastFocusable.focus();
-                        }
-                    } else {
-                        if (document.activeElement === lastFocusable) {
-                            e.preventDefault();
-                            firstFocusable.focus();
-                        }
-                    }
-                }
-                
-                if (e.key === 'Escape') {
-                    closeImageModal();
-                }
-            });
-        }
-
-        // ARIA Live Regions for Dynamic Content
-        function setupAriaLiveRegions() {
-            // Create status region for announcements
-            const statusRegion = document.createElement('div');
-            statusRegion.setAttribute('aria-live', 'polite');
-            statusRegion.setAttribute('aria-atomic', 'true');
-            statusRegion.className = 'sr-only';
-            statusRegion.id = 'status-announcer';
-            document.body.appendChild(statusRegion);
-
-            // Create alert region for important announcements
-            const alertRegion = document.createElement('div');
-            alertRegion.setAttribute('aria-live', 'assertive');
-            alertRegion.setAttribute('aria-atomic', 'true');
-            alertRegion.className = 'sr-only';
-            alertRegion.id = 'alert-announcer';
-            document.body.appendChild(alertRegion);
-        }
-
-        // Accessible Interactions
-        function setupAccessibleInteractions() {
-            // Enhanced FAQ with proper ARIA
-            const originalToggleFAQ = window.toggleFAQ;
-            window.toggleFAQ = function(questionElement) {
-                const faqItem = questionElement.parentElement;
-                const answer = faqItem.querySelector('.faq-answer');
-                const isOpen = faqItem.classList.contains('active');
-                
-                // Update ARIA attributes
-                questionElement.setAttribute('aria-expanded', !isOpen);
-                answer.setAttribute('aria-hidden', isOpen);
-                
-                // Announce to screen readers
-                const questionText = questionElement.querySelector('h3').textContent;
-                announceToScreenReader(
-                    `FAQ ${questionText} ${!isOpen ? 'expanded' : 'collapsed'}`,
-                    'status'
-                );
-                
-                originalToggleFAQ(questionElement);
-            };
-
-            // Enhanced page navigation with announcements
-            const originalShowPage = window.showPage;
-            window.showPage = function(pageId) {
-                originalShowPage(pageId);
-                
-                // Announce page change
-                const pageTitle = document.querySelector(`#${pageId} h1`)?.textContent || 
-                                pageId.charAt(0).toUpperCase() + pageId.slice(1);
-                announceToScreenReader(`Navigated to ${pageTitle} page`, 'status');
-                
-                // Update current page indicator in navigation
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.setAttribute('aria-current', 'false');
-                });
-                
-                const currentLink = document.querySelector(`.nav-links a[onclick*="${pageId}"]`);
-                if (currentLink) {
-                    currentLink.setAttribute('aria-current', 'page');
-                }
-            };
-        }
-
-        // High Contrast Mode Detection
-        function setupHighContrastDetection() {
-            if (window.matchMedia('(prefers-contrast: high)').matches) {
-                document.body.classList.add('high-contrast');
-                console.log('High contrast mode detected');
-            }
-        }
-
-        // Screen Reader Announcements
-        function announceToScreenReader(message, type = 'status') {
-            const announcer = document.getElementById(`${type}-announcer`);
-            if (announcer) {
-                announcer.textContent = '';
-                setTimeout(() => {
-                    announcer.textContent = message;
-                }, 100);
-                
-                // Clear after announcement
-                setTimeout(() => {
-                    announcer.textContent = '';
-                }, 3000);
-            }
-        }
-
-        // Page Load Announcement
-        function announcePageLoad() {
-            setTimeout(() => {
-                announceToScreenReader(
-                    'Strategia-X consulting website loaded. Navigate using tab key or arrow keys in menus.',
-                    'status'
-                );
-            }, 1500);
-        }
-
-        // Enhanced Newsletter Subscription with Accessibility
-        const originalSubscribeNewsletter = window.subscribeNewsletter;
-        window.subscribeNewsletter = function(event) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const email = form.querySelector('input[type="email"]').value;
-            const button = form.querySelector('button[type="submit"]');
-            
-            // Announce subscription attempt
-            announceToScreenReader('Processing newsletter subscription...', 'status');
-            
-            // Disable form during processing
-            button.disabled = true;
-            button.setAttribute('aria-busy', 'true');
-            
-            // Call original function
-            originalSubscribeNewsletter(event);
-            
-            // Announce completion
-            setTimeout(() => {
-                announceToScreenReader('Newsletter subscription email opened successfully!', 'status');
-                button.disabled = false;
-                button.removeAttribute('aria-busy');
-            }, 2000);
-        };
 
         // SEO Enhancement: Add semantic keywords to page content
         document.addEventListener('DOMContentLoaded', function() {

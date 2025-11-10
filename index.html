@@ -554,6 +554,14 @@
             opacity: 1;
         }
         
+        /* CRITICAL FIX: Modal images should always be visible */
+        #modalImage,
+        .modal-image {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
         .image-placeholder {
             background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
             background-size: 400% 100%;
@@ -3453,43 +3461,49 @@
                 return;
             }
             
-            // Set image properties first
+            // CRITICAL: Remove lazy-load class and force visibility
+            modalImg.classList.remove('lazy-load', 'image-placeholder');
+            modalImg.classList.add('loaded');
+            
+            // Set image properties
             modalImg.src = imageSrc;
             modalImg.alt = imageAlt;
             
+            // Force visibility with inline styles
+            modalImg.style.opacity = '1';
+            modalImg.style.visibility = 'visible';
+            modalImg.style.display = 'block';
+            
             console.log('  - Image src set to:', modalImg.src);
-            console.log('  - Image alt set to:', modalImg.alt);
+            console.log('  - Image classes:', modalImg.className);
+            console.log('  - Image inline style:', modalImg.style.cssText);
             
             // Show modal
             modal.style.display = 'block';
             modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
             
             console.log('  - Modal display set to:', modal.style.display);
-            console.log('  - Modal visible on page:', window.getComputedStyle(modal).display);
             
-            // Check image dimensions after a moment
+            // Check image after a moment
             setTimeout(() => {
                 console.log('  - Image naturalWidth:', modalImg.naturalWidth);
                 console.log('  - Image naturalHeight:', modalImg.naturalHeight);
                 console.log('  - Image complete:', modalImg.complete);
-                console.log('  - Image computed display:', window.getComputedStyle(modalImg).display);
-                console.log('  - Image computed visibility:', window.getComputedStyle(modalImg).visibility);
                 console.log('  - Image computed opacity:', window.getComputedStyle(modalImg).opacity);
             }, 100);
             
-            // Add image load error handling
+            // Error handling
             modalImg.onerror = function() {
                 console.error('❌ Failed to load image:', imageSrc);
                 alert('Image failed to load: ' + imageSrc);
                 modalImg.alt = 'Image failed to load: ' + imageAlt;
             };
             
-            // Add image load success handling
+            // Success handling
             modalImg.onload = function() {
                 console.log('✅ Image loaded successfully:', imageSrc);
-                console.log('  - Final naturalWidth:', modalImg.naturalWidth);
-                console.log('  - Final naturalHeight:', modalImg.naturalHeight);
+                console.log('  - Final width:', modalImg.naturalWidth, 'x', modalImg.naturalHeight);
             };
             
             // Track image modal opens

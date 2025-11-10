@@ -3534,29 +3534,6 @@
                 console.log('🔒 Strategia-X website loaded with enterprise security enabled');
             }
             
-            // FORCE ALL IMAGES TO DISPLAY IMMEDIATELY - DEBUG FIX
-            setTimeout(() => {
-                const allImages = document.querySelectorAll('img');
-                console.log('🖼️ Force loading', allImages.length, 'images...');
-                
-                allImages.forEach((img) => {
-                    // Remove any classes that might hide images
-                    img.classList.remove('lazy-load', 'image-placeholder');
-                    img.style.opacity = '1';
-                    img.style.visibility = 'visible';
-                    img.style.display = 'block';
-                    
-                    // Force reload if src exists
-                    if (img.src && img.src.includes('github')) {
-                        const originalSrc = img.src;
-                        img.src = '';
-                        img.src = originalSrc;
-                    }
-                    
-                    console.log('📷 Processing image:', img.alt || img.src);
-                });
-            }, 100);
-            
             // Track email clicks
             document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
                 link.addEventListener('click', function(e) {

@@ -1072,226 +1072,6 @@
             }
         }
 
-        /* Contact Form Modal Styles */
-        #contactModal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 10000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        #contactModal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .contact-modal-content {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            border-radius: 24px;
-            padding: 3rem;
-            max-width: 600px;
-            width: 100%;
-            position: relative;
-            animation: zoomIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3),
-                        0 0 0 1px rgba(220, 38, 38, 0.1);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .contact-modal-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .contact-modal-header h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
-
-        .contact-modal-header p {
-            color: #a1a1a6;
-            font-size: 1.1rem;
-        }
-
-        .contact-form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form-group label {
-            display: block;
-            color: white;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-
-        .contact-form-group label span.required {
-            color: var(--red);
-            margin-left: 2px;
-        }
-
-        .contact-form-group input,
-        .contact-form-group select,
-        .contact-form-group textarea {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .contact-form-group input:focus,
-        .contact-form-group select:focus,
-        .contact-form-group textarea:focus {
-            outline: none;
-            border-color: var(--red);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-        }
-
-        .contact-form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-
-        .contact-form-group select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            padding-right: 2.5rem;
-        }
-
-        .contact-form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .contact-modal-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .contact-modal-actions button {
-            flex: 1;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            letter-spacing: 0.3px;
-        }
-
-        .contact-modal-actions .btn-submit {
-            background: var(--red);
-            color: white;
-        }
-
-        .contact-modal-actions .btn-submit:hover {
-            background: #b91c1c;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
-        }
-
-        .contact-modal-actions .btn-cancel {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .contact-modal-actions .btn-cancel:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .contact-modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .contact-modal-close:hover {
-            background: var(--red);
-            transform: rotate(90deg);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .contact-modal-content {
-                padding: 2rem 1.5rem;
-                margin: 1rem;
-            }
-
-            .contact-modal-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-modal-actions {
-                flex-direction: column;
-            }
-        }
-
-        /* Success Message Styles */
-        .form-success-message {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.05) 100%);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            color: #4ade80;
-            text-align: center;
-            display: none;
-        }
-
-        .form-error-message {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.05) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            color: #f87171;
-            text-align: center;
-            display: none;
-        }
-
-
         .industry-item h4 {
             font-size: 1.1rem;
             font-weight: 600;
@@ -1382,11 +1162,6 @@
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-        }
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -1607,9 +1382,9 @@
             text-align: center;
             margin-top: 4rem;
             padding: 3rem 2rem;
-            background: var(--red);
+            background: rgba(220, 38, 38, 0.1);
             border-radius: 20px;
-            border: none;
+            border: 1px solid rgba(220, 38, 38, 0.2);
         }
 
         .case-studies-cta h3 {
@@ -1621,10 +1396,9 @@
         }
 
         .case-studies-cta p {
-            color: white;
+            color: #a1a1a6;
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
         }
 
         @media (max-width: 768px) {
@@ -3056,7 +2830,7 @@
             <section class="cta-section">
                 <h2>Ready to Transform Your Business?</h2>
                 <p>Let's discuss how Strategia-X can help you achieve your strategic objectives.</p>
-                <button onclick="openContactModal()" class="btn-primary">Get In Touch</button>
+                <a href="mailto:info@strategia-x.com" class="btn-primary">Get In Touch</a>
             </section>
         </div>
 
@@ -3256,7 +3030,7 @@
                 <div class="case-studies-cta">
                     <h3>Ready to Transform Your Business?</h3>
                     <p>Let's discuss how we can deliver similar results for your organization</p>
-                    <button onclick="openContactModal()" class="btn-primary">Start Your Transformation</button>
+                    <a onclick="showPage('contact')" class="btn-primary">Start Your Transformation</a>
                 </div>
             </section>
         </div>
@@ -3418,7 +3192,7 @@
                 <div class="faq-cta">
                     <h3>Still Have Questions?</h3>
                     <p>Let's discuss your specific situation and how Strategia-X can help</p>
-                    <button onclick="openContactModal()" class="btn-primary">Schedule a Consultation</button>
+                    <a onclick="showPage('contact')" class="btn-primary">Schedule a Consultation</a>
                 </div>
             </section>
         </div>
@@ -3566,102 +3340,6 @@
                  src="" 
                  alt=""
                  role="img">
-        </div>
-    </div>
-
-    <!-- Contact Form Modal -->
-    <div id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-        <div class="contact-modal-content">
-            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close contact form">
-                ×
-            </button>
-            
-            <div class="contact-modal-header">
-                <h2 id="contactModalTitle">Let's Transform Your Business</h2>
-                <p>Tell us about your project and we'll get back to you within 24 hours</p>
-            </div>
-
-            <div id="formSuccessMessage" class="form-success-message"></div>
-            <div id="formErrorMessage" class="form-error-message"></div>
-
-            <form id="contactForm" onsubmit="handleContactFormSubmit(event)">
-                <div class="contact-form-row">
-                    <div class="contact-form-group">
-                        <label for="contactName">Full Name <span class="required">*</span></label>
-                        <input type="text" id="contactName" name="name" required placeholder="John Doe">
-                    </div>
-                    <div class="contact-form-group">
-                        <label for="contactEmail">Email <span class="required">*</span></label>
-                        <input type="email" id="contactEmail" name="email" required placeholder="john@company.com">
-                    </div>
-                </div>
-
-                <div class="contact-form-row">
-                    <div class="contact-form-group">
-                        <label for="contactCompany">Company</label>
-                        <input type="text" id="contactCompany" name="company" placeholder="Your Company">
-                    </div>
-                    <div class="contact-form-group">
-                        <label for="contactPhone">Phone</label>
-                        <input type="tel" id="contactPhone" name="phone" placeholder="+1 (555) 123-4567">
-                    </div>
-                </div>
-
-                <div class="contact-form-group">
-                    <label for="contactService">Service Interest <span class="required">*</span></label>
-                    <select id="contactService" name="service" required>
-                        <option value="">Select a service...</option>
-                        <option value="strategic-planning">Strategic Planning & Roadmap Development</option>
-                        <option value="cloud-architecture">Cloud Architecture & DevOps</option>
-                        <option value="data-analytics">Data Analytics & Business Intelligence</option>
-                        <option value="cybersecurity">Cybersecurity & Compliance</option>
-                        <option value="process-optimization">Process Optimization & Automation</option>
-                        <option value="digital-transformation">Digital Transformation</option>
-                        <option value="agile-transformation">Agile Transformation</option>
-                        <option value="engineering-solutions">Engineering Solutions</option>
-                        <option value="ai-ml-integration">AI/ML Integration</option>
-                        <option value="general-inquiry">General Inquiry</option>
-                    </select>
-                </div>
-
-                <div class="contact-form-group">
-                    <label for="contactBudget">Project Budget Range</label>
-                    <select id="contactBudget" name="budget">
-                        <option value="">Select budget range...</option>
-                        <option value="under-50k">Under $50,000</option>
-                        <option value="50k-100k">$50,000 - $100,000</option>
-                        <option value="100k-250k">$100,000 - $250,000</option>
-                        <option value="250k-500k">$250,000 - $500,000</option>
-                        <option value="over-500k">Over $500,000</option>
-                    </select>
-                </div>
-
-                <div class="contact-form-group">
-                    <label for="contactTimeline">Project Timeline</label>
-                    <select id="contactTimeline" name="timeline">
-                        <option value="">Select timeline...</option>
-                        <option value="immediate">Immediate (ASAP)</option>
-                        <option value="1-3-months">1-3 Months</option>
-                        <option value="3-6-months">3-6 Months</option>
-                        <option value="6-12-months">6-12 Months</option>
-                        <option value="12-plus-months">12+ Months</option>
-                        <option value="exploring">Just Exploring</option>
-                    </select>
-                </div>
-
-                <div class="contact-form-group">
-                    <label for="contactMessage">Message <span class="required">*</span></label>
-                    <textarea id="contactMessage" name="message" required placeholder="Tell us about your project, challenges, and goals..."></textarea>
-                </div>
-
-                <!-- Honeypot field for spam protection (hidden) -->
-                <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
-
-                <div class="contact-modal-actions">
-                    <button type="button" class="btn-cancel" onclick="closeContactModal()">Cancel</button>
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -3863,180 +3541,8 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeImageModal();
-                closeContactModal();
             }
         });
-
-        // Contact Modal Functions
-        function openContactModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            
-            // Focus on first input for accessibility
-            setTimeout(() => {
-                document.getElementById('contactName').focus();
-            }, 100);
-            
-            // Track modal open
-            if (typeof trackEvent !== 'undefined') {
-                trackEvent('contact_modal_opened', {
-                    interaction_type: 'user_action',
-                    source: 'get_in_touch_button'
-                });
-            }
-        }
-
-        function closeContactModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-            
-            // Clear any messages
-            document.getElementById('formSuccessMessage').style.display = 'none';
-            document.getElementById('formErrorMessage').style.display = 'none';
-            
-            // Track modal close
-            if (typeof trackEvent !== 'undefined') {
-                trackEvent('contact_modal_closed', {
-                    interaction_type: 'user_action'
-                });
-            }
-        }
-
-        // Close modal when clicking outside the content
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeContactModal();
-            }
-        });
-
-        // Handle Contact Form Submission
-        function handleContactFormSubmit(event) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Spam check using existing security system
-            if (window.StrategiaXSecurity && window.StrategiaXSecurity.isSpamAttempt) {
-                const spamCheck = {
-                    website: data.website || '',
-                    submitTime: Date.now() - (window.formLoadTime || Date.now()),
-                    message: data.message || '',
-                    email: data.email || ''
-                };
-                
-                if (window.StrategiaXSecurity.isSpamAttempt(spamCheck)) {
-                    showFormError('Your submission was flagged as spam. Please try again.');
-                    return;
-                }
-            }
-            
-            // Sanitize inputs
-            if (window.StrategiaXSecurity && window.StrategiaXSecurity.sanitizeInput) {
-                Object.keys(data).forEach(key => {
-                    if (typeof data[key] === 'string') {
-                        data[key] = window.StrategiaXSecurity.sanitizeInput(data[key]);
-                    }
-                });
-            }
-            
-            // Validate email
-            if (window.StrategiaXSecurity && window.StrategiaXSecurity.validateEmail) {
-                if (!window.StrategiaXSecurity.validateEmail(data.email)) {
-                    showFormError('Please enter a valid email address.');
-                    return;
-                }
-            }
-            
-            // Disable submit button during processing
-            const submitBtn = form.querySelector('.btn-submit');
-            const originalText = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            
-            // Create email content
-            const emailSubject = encodeURIComponent(`New Inquiry: ${data.service || 'General'} - ${data.name}`);
-            const emailBody = encodeURIComponent(`
-New Contact Form Submission
-================================
-
-CONTACT INFORMATION:
--------------------
-Name: ${data.name}
-Email: ${data.email}
-Company: ${data.company || 'Not provided'}
-Phone: ${data.phone || 'Not provided'}
-
-PROJECT DETAILS:
-----------------
-Service Interest: ${data.service}
-Budget Range: ${data.budget || 'Not specified'}
-Timeline: ${data.timeline || 'Not specified'}
-
-MESSAGE:
---------
-${data.message}
-
-================================
-Submitted: ${new Date().toLocaleString()}
-`);
-            
-            // Track form submission
-            if (typeof trackEvent !== 'undefined') {
-                trackEvent('contact_form_submitted', {
-                    service: data.service,
-                    budget: data.budget || 'not_specified',
-                    timeline: data.timeline || 'not_specified',
-                    has_company: !!data.company,
-                    has_phone: !!data.phone
-                });
-            }
-            
-            // Open email client with pre-filled content
-            window.location.href = `mailto:info@strategia-x.com?subject=${emailSubject}&body=${emailBody}`;
-            
-            // Show success message
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-                showFormSuccess('Email client opened! Your message is ready to send.');
-                
-                // Reset form after a delay
-                setTimeout(() => {
-                    form.reset();
-                    closeContactModal();
-                }, 3000);
-            }, 1000);
-        }
-
-        function showFormSuccess(message) {
-            const successDiv = document.getElementById('formSuccessMessage');
-            const errorDiv = document.getElementById('formErrorMessage');
-            errorDiv.style.display = 'none';
-            successDiv.textContent = message;
-            successDiv.style.display = 'block';
-            
-            // Scroll to message
-            successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        function showFormError(message) {
-            const successDiv = document.getElementById('formSuccessMessage');
-            const errorDiv = document.getElementById('formErrorMessage');
-            successDiv.style.display = 'none';
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-            
-            // Scroll to message
-            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        // Track form load time for spam detection
-        window.formLoadTime = Date.now();
-
 
         // FAQ Toggle Functionality with Analytics tracking
         function toggleFAQ(questionElement) {

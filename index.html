@@ -3437,27 +3437,59 @@
 
         // Image modal functionality with Analytics tracking
         function openImageModal(imageSrc, imageAlt) {
+            console.log('🔵 openImageModal called');
+            console.log('  - imageSrc:', imageSrc);
+            console.log('  - imageAlt:', imageAlt);
+            
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
+            
+            console.log('  - modal found:', !!modal);
+            console.log('  - modalImg found:', !!modalImg);
+            
+            if (!modal || !modalImg) {
+                console.error('❌ Modal or image element not found!');
+                alert('Error: Modal elements not found. Check console.');
+                return;
+            }
             
             // Set image properties first
             modalImg.src = imageSrc;
             modalImg.alt = imageAlt;
+            
+            console.log('  - Image src set to:', modalImg.src);
+            console.log('  - Image alt set to:', modalImg.alt);
             
             // Show modal
             modal.style.display = 'block';
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
             
+            console.log('  - Modal display set to:', modal.style.display);
+            console.log('  - Modal visible on page:', window.getComputedStyle(modal).display);
+            
+            // Check image dimensions after a moment
+            setTimeout(() => {
+                console.log('  - Image naturalWidth:', modalImg.naturalWidth);
+                console.log('  - Image naturalHeight:', modalImg.naturalHeight);
+                console.log('  - Image complete:', modalImg.complete);
+                console.log('  - Image computed display:', window.getComputedStyle(modalImg).display);
+                console.log('  - Image computed visibility:', window.getComputedStyle(modalImg).visibility);
+                console.log('  - Image computed opacity:', window.getComputedStyle(modalImg).opacity);
+            }, 100);
+            
             // Add image load error handling
             modalImg.onerror = function() {
-                console.error('Failed to load image:', imageSrc);
+                console.error('❌ Failed to load image:', imageSrc);
+                alert('Image failed to load: ' + imageSrc);
                 modalImg.alt = 'Image failed to load: ' + imageAlt;
             };
             
             // Add image load success handling
             modalImg.onload = function() {
-                console.log('Image loaded successfully:', imageSrc);
+                console.log('✅ Image loaded successfully:', imageSrc);
+                console.log('  - Final naturalWidth:', modalImg.naturalWidth);
+                console.log('  - Final naturalHeight:', modalImg.naturalHeight);
             };
             
             // Track image modal opens

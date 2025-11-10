@@ -4221,11 +4221,11 @@
             addFloatingAnimation();
             enhancePageTransitions();
             addScrollProgressIndicator();
-            enhanceModalAnimations();
+            // DISABLED: enhanceModalAnimations(); - Was breaking modal image display
             initializePageAnimations();
             
             // Initialize accessibility features
-            initializeAccessibilityFeatures();
+            // DISABLED: initializeAccessibilityFeatures(); - Was breaking modal image display
             
             // Track micro-interactions initialization
             if (typeof trackEvent !== 'undefined') {

@@ -77,12 +77,12 @@
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Logo/favicon.png">
     
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYEV3YHQST"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-GYEV3YHQST', {
+        gtag('config', 'GA_MEASUREMENT_ID', {
             page_title: document.title,
             page_location: window.location.href
         });
@@ -4059,7 +4059,9 @@
                     operational excellence, and innovative engineering solutions.
                 </p>
                 <div class="hero-cta" role="group" aria-label="Get started actions">
-                    <a href="/cdn-cgi/l/email-protection#224b4c444d62515650435647454b430f5a0c414d4f" class="btn-primary" aria-label="Start your transformation - Send email to Strategia-X">
+                    <a href="mailto:info@strategia-x.com" 
+                       class="btn-primary" 
+                       aria-label="Start your transformation - Send email to Strategia-X">
                        Start Your Transformation
                     </a>
                     <a onclick="showPage('services')" 
@@ -4759,7 +4761,7 @@
                     and drive sustainable growth.
                 </p>
                 <div class="hero-cta">
-                    <a href="/cdn-cgi/l/email-protection#94fdfaf2fbd4e7e0e6f5e0f1f3fdf5b9ecbaf7fbf9" class="btn-primary">Email Us</a>
+                    <a href="mailto:info@strategia-x.com" class="btn-primary">Email Us</a>
                 </div>
             </section>
 
@@ -4772,7 +4774,7 @@
                     <div class="service-card stagger-item">
                         <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Contact.Grid/Email.png" alt="Email" class="home-service-image" onclick="openImageModal(this.src, this.alt)">
                         <h3>Email</h3>
-                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1c8cfc7cee1d2d5d3c0d5c4c6c8c08cd98fc2cecc">[email&#160;protected]</a><br>For all inquiries and consultations</p>
+                        <p>info@strategia-x.com<br>For all inquiries and consultations</p>
                     </div>
                     
                     <div class="service-card stagger-item">
@@ -4998,7 +5000,7 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#d3babdb5bc93a0a7a1b2a7b6b4bab2feabfdb0bcbe"><span class="__cf_email__" data-cfemail="3b52555d547b484f495a4f5e5c525a164315585456">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:info@strategia-x.com">info@strategia-x.com</a></li>
                     <li>Elite Consulting Solutions</li>
                     <li>Strategic Technology Implementation</li>
                 </ul>
@@ -5188,7 +5190,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Page navigation with Analytics tracking and dynamic SEO
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
@@ -7317,4 +7319,17 @@ Submitted: ${new Date().toLocaleString()}
                         const targetValue = parseInt(statElement.dataset.target) || 0;
                         
                         if (targetValue > 0 && !statElement.classList.contains('counted')) {
-                  
+                            animateCounter(statElement, targetValue);
+                            statElement.classList.add('counted');
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('[data-counter]').forEach(el => {
+                statObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

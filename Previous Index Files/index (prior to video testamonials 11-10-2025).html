@@ -67,7 +67,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Security Headers - DEBUGGING IMAGE ISSUE -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src * data: blob: 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://raw.githubusercontent.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src * data: blob: 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -5075,24 +5075,24 @@ Submitted: ${new Date().toLocaleString()}
                 company: "TechFlow Solutions",
                 quote: "Strategia-X transformed our entire infrastructure. We went from constant downtime to 99.9% uptime, and reduced our IT costs by 40%. The strategic approach was exactly what we needed. The direct partnership model meant we always worked with someone who truly understood our business.",
                 // Replace this with your actual video URL (YouTube, Vimeo, or hosted video)
-                videoUrl: "demo", // Set to "demo" for placeholder, or your actual video URL
-                videoType: "demo" // demo, youtube, vimeo, or custom
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                videoType: "youtube" // youtube, vimeo, or custom
             },
             testimonial2: {
                 name: "Michael Rodriguez",
                 title: "VP of Engineering",
                 company: "DataSync Corp",
                 quote: "Working directly with the strategist made all the difference. No middlemen, no miscommunication. Our cloud migration was completed in 3 weeks with zero business disruption. The expertise and attention to detail were outstanding.",
-                videoUrl: "demo",
-                videoType: "demo"
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                videoType: "youtube"
             },
             testimonial3: {
                 name: "Jennifer Park",
                 title: "COO",
                 company: "InnovateLabs",
                 quote: "The ROI was immediate. Process automation alone saved us 200+ hours per month. The strategic roadmap provided clarity we've never had before. This is the consulting partnership every company needs.",
-                videoUrl: "demo",
-                videoType: "demo"
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                videoType: "youtube"
             }
         };
 
@@ -5104,34 +5104,7 @@ Submitted: ${new Date().toLocaleString()}
             
             // Populate video player
             const videoPlayer = document.getElementById('videoModalPlayer');
-            if (testimonial.videoType === 'demo') {
-                // Demo mode - show placeholder message
-                videoPlayer.innerHTML = `
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                                background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); 
-                                display: flex; flex-direction: column; align-items: center; justify-content: center; 
-                                padding: 3rem; text-align: center;">
-                        <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--red) 0%, #b91c1c 100%); 
-                                    border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-                                    margin-bottom: 2rem; box-shadow: 0 20px 60px rgba(220, 38, 38, 0.4);">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </div>
-                        <h3 style="color: white; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.5px;">
-                            Video Testimonial Coming Soon
-                        </h3>
-                        <p style="color: #a1a1a6; font-size: 1.1rem; line-height: 1.6; max-width: 500px; margin-bottom: 1.5rem;">
-                            This is a placeholder for ${testimonial.name}'s video testimonial. 
-                            Replace the demo URL with your actual client video to see it here.
-                        </p>
-                        <div style="padding: 1rem 2rem; background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.3); 
-                                    border-radius: 12px; color: #f87171; font-size: 0.95rem;">
-                            <strong>For Site Owner:</strong> Update the videoUrl in testimonialData to add real videos
-                        </div>
-                    </div>
-                `;
-            } else if (testimonial.videoType === 'youtube' || testimonial.videoType === 'vimeo') {
+            if (testimonial.videoType === 'youtube' || testimonial.videoType === 'vimeo') {
                 videoPlayer.innerHTML = `
                     <iframe 
                         src="${testimonial.videoUrl}?autoplay=1" 

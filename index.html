@@ -5105,31 +5105,248 @@ Submitted: ${new Date().toLocaleString()}
             // Populate video player
             const videoPlayer = document.getElementById('videoModalPlayer');
             if (testimonial.videoType === 'demo') {
-                // Demo mode - show placeholder message
+                // Beautiful animated testimonial
                 videoPlayer.innerHTML = `
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                                background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); 
-                                display: flex; flex-direction: column; align-items: center; justify-content: center; 
-                                padding: 3rem; text-align: center;">
-                        <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--red) 0%, #b91c1c 100%); 
-                                    border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-                                    margin-bottom: 2rem; box-shadow: 0 20px 60px rgba(220, 38, 38, 0.4);">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </div>
-                        <h3 style="color: white; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.5px;">
-                            Video Testimonial Coming Soon
-                        </h3>
-                        <p style="color: #a1a1a6; font-size: 1.1rem; line-height: 1.6; max-width: 500px; margin-bottom: 1.5rem;">
-                            This is a placeholder for ${testimonial.name}'s video testimonial. 
-                            Replace the demo URL with your actual client video to see it here.
-                        </p>
-                        <div style="padding: 1rem 2rem; background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.3); 
-                                    border-radius: 12px; color: #f87171; font-size: 0.95rem;">
-                            <strong>For Site Owner:</strong> Update the videoUrl in testimonialData to add real videos
+                    <div class="animated-testimonial">
+                        <div class="animated-bg"></div>
+                        <div class="animated-particles"></div>
+                        <div class="animated-content">
+                            <div class="animated-quote-icon">❝</div>
+                            <div class="animated-quote-text">${testimonial.quote}</div>
+                            <div class="animated-client-info">
+                                <div class="animated-client-avatar">${testimonial.name.split(' ').map(n => n[0]).join('')}</div>
+                                <div class="animated-client-details">
+                                    <div class="animated-client-name">${testimonial.name}</div>
+                                    <div class="animated-client-title">${testimonial.title}</div>
+                                    <div class="animated-client-company">${testimonial.company}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <style>
+                        .animated-testimonial {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                            background: #000;
+                        }
+                        
+                        .animated-bg {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(135deg, 
+                                rgba(220, 38, 38, 0.3) 0%, 
+                                rgba(185, 28, 28, 0.2) 25%,
+                                rgba(26, 26, 26, 0.9) 50%,
+                                rgba(15, 15, 15, 1) 100%);
+                            animation: gradientShift 15s ease infinite;
+                        }
+                        
+                        @keyframes gradientShift {
+                            0%, 100% { 
+                                background: linear-gradient(135deg, 
+                                    rgba(220, 38, 38, 0.3) 0%, 
+                                    rgba(185, 28, 28, 0.2) 25%,
+                                    rgba(26, 26, 26, 0.9) 50%,
+                                    rgba(15, 15, 15, 1) 100%);
+                            }
+                            50% { 
+                                background: linear-gradient(135deg, 
+                                    rgba(185, 28, 28, 0.3) 0%,
+                                    rgba(220, 38, 38, 0.2) 25%, 
+                                    rgba(15, 15, 15, 0.9) 50%,
+                                    rgba(26, 26, 26, 1) 100%);
+                            }
+                        }
+                        
+                        .animated-particles {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: 
+                                radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.1) 0%, transparent 50%),
+                                radial-gradient(circle at 80% 70%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
+                                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+                            animation: particleFloat 20s ease-in-out infinite;
+                        }
+                        
+                        @keyframes particleFloat {
+                            0%, 100% { transform: translate(0, 0) scale(1); }
+                            33% { transform: translate(30px, -30px) scale(1.1); }
+                            66% { transform: translate(-20px, 20px) scale(0.9); }
+                        }
+                        
+                        .animated-content {
+                            position: relative;
+                            z-index: 2;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100%;
+                            padding: 3rem;
+                            text-align: center;
+                        }
+                        
+                        .animated-quote-icon {
+                            font-size: 4rem;
+                            color: var(--red);
+                            opacity: 0;
+                            animation: fadeInDown 0.8s ease forwards;
+                            margin-bottom: 1.5rem;
+                            text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+                        }
+                        
+                        @keyframes fadeInDown {
+                            from {
+                                opacity: 0;
+                                transform: translateY(-30px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                        
+                        .animated-quote-text {
+                            font-size: 1.5rem;
+                            font-weight: 400;
+                            color: white;
+                            line-height: 1.8;
+                            max-width: 800px;
+                            margin-bottom: 3rem;
+                            opacity: 0;
+                            animation: fadeInUp 1s ease 0.3s forwards;
+                            font-style: italic;
+                            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                        }
+                        
+                        @keyframes fadeInUp {
+                            from {
+                                opacity: 0;
+                                transform: translateY(30px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                        
+                        .animated-client-info {
+                            display: flex;
+                            align-items: center;
+                            gap: 1.5rem;
+                            opacity: 0;
+                            animation: fadeInScale 0.8s ease 0.6s forwards;
+                            padding: 1.5rem 2.5rem;
+                            background: rgba(255, 255, 255, 0.05);
+                            border-radius: 100px;
+                            backdrop-filter: blur(10px);
+                            border: 1px solid rgba(255, 255, 255, 0.1);
+                        }
+                        
+                        @keyframes fadeInScale {
+                            from {
+                                opacity: 0;
+                                transform: scale(0.8);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+                        
+                        .animated-client-avatar {
+                            width: 70px;
+                            height: 70px;
+                            border-radius: 50%;
+                            background: linear-gradient(135deg, var(--red) 0%, #b91c1c 100%);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.8rem;
+                            font-weight: 700;
+                            color: white;
+                            flex-shrink: 0;
+                            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+                            animation: avatarPulse 3s ease-in-out infinite;
+                        }
+                        
+                        @keyframes avatarPulse {
+                            0%, 100% { 
+                                transform: scale(1);
+                                box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+                            }
+                            50% { 
+                                transform: scale(1.05);
+                                box-shadow: 0 15px 40px rgba(220, 38, 38, 0.6);
+                            }
+                        }
+                        
+                        .animated-client-details {
+                            text-align: left;
+                        }
+                        
+                        .animated-client-name {
+                            font-size: 1.4rem;
+                            font-weight: 700;
+                            color: white;
+                            margin-bottom: 0.3rem;
+                            letter-spacing: -0.5px;
+                        }
+                        
+                        .animated-client-title {
+                            font-size: 1rem;
+                            color: #a1a1a6;
+                            margin-bottom: 0.2rem;
+                        }
+                        
+                        .animated-client-company {
+                            font-size: 1rem;
+                            color: var(--red);
+                            font-weight: 600;
+                        }
+                        
+                        @media (max-width: 768px) {
+                            .animated-content {
+                                padding: 2rem 1.5rem;
+                            }
+                            
+                            .animated-quote-icon {
+                                font-size: 3rem;
+                                margin-bottom: 1rem;
+                            }
+                            
+                            .animated-quote-text {
+                                font-size: 1.2rem;
+                                margin-bottom: 2rem;
+                            }
+                            
+                            .animated-client-info {
+                                flex-direction: column;
+                                padding: 1.5rem;
+                                border-radius: 20px;
+                            }
+                            
+                            .animated-client-details {
+                                text-align: center;
+                            }
+                            
+                            .animated-client-avatar {
+                                width: 60px;
+                                height: 60px;
+                                font-size: 1.5rem;
+                            }
+                        }
+                    </style>
                 `;
             } else if (testimonial.videoType === 'youtube' || testimonial.videoType === 'vimeo') {
                 videoPlayer.innerHTML = `

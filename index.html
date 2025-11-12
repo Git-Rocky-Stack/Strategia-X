@@ -3024,23 +3024,37 @@
             text-align: center;
             margin-top: 4rem;
             padding: 3rem 2rem;
-            background: var(--light-gray);
+            background: var(--red);
             border-radius: 20px;
-            border: 1px solid rgba(29, 29, 31, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .faq-cta h3 {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--dark-gray);
+            color: white;
             margin-bottom: 1rem;
             letter-spacing: -0.5px;
         }
 
         .faq-cta p {
-            color: var(--mid-gray);
+            color: white;
             font-size: 1.1rem;
             margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .faq-cta .btn-primary {
+            background: white;
+            color: var(--red);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-cta .btn-primary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -4869,7 +4883,7 @@
                     <div class="service-card stagger-item">
                         <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Contact.Grid/Email.png" alt="Email" class="home-service-image" onclick="openImageModal(this.src, this.alt)">
                         <h3>Email</h3>
-                        <p><a href="mailto:info@strategia-x.com" style="color: var(--red); text-decoration: none; cursor: pointer;">info@strategia-x.com</a><br>For all inquiries and consultations</p>
+                        <p><a href="/cdn-cgi/l/email-protection#4f262129200f3c3b3d2e3b2a28262e6237612c2022" style="color: var(--red); text-decoration: none; cursor: pointer;"><span class="__cf_email__" data-cfemail="6d04030b022d1e191f0c19080a040c4015430e0200">[email&#160;protected]</span></a><br>For all inquiries and consultations</p>
                     </div>
                     
                     <div class="service-card stagger-item">
@@ -5381,7 +5395,7 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="mailto:info@strategia-x.com" style="cursor: pointer;">info@strategia-x.com</a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#660f08000926151214071203010f074b1e4805090b" style="cursor: pointer;"><span class="__cf_email__" data-cfemail="543d3a323b14272026352031333d35792c7a373b39">[email&#160;protected]</span></a></li>
                     <li>Elite Consulting Solutions</li>
                     <li>Strategic Technology Implementation</li>
                 </ul>
@@ -5571,7 +5585,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Page navigation with Analytics tracking and dynamic SEO
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
@@ -7701,16 +7715,4 @@ Submitted: ${new Date().toLocaleString()}
                         
                         if (targetValue > 0 && !statElement.classList.contains('counted')) {
                                               statElement.classList.add('counted');
-                            animateCounter(statElement, targetValue);
-                        }
-                    }
-                });
-            });
-
-            // Observe all stat elements
-            const statElements = document.querySelectorAll('.stat-number[data-target]');
-            statElements.forEach(el => statObserver.observe(el));
-        });
-    </script>
-</body>
-</html>
+           

@@ -4883,7 +4883,7 @@
                     <div class="service-card stagger-item">
                         <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Strategia-X/refs/heads/main/Images/Contact.Grid/Email.png" alt="Email" class="home-service-image" onclick="openImageModal(this.src, this.alt)">
                         <h3>Email</h3>
-                        <p><a href="/cdn-cgi/l/email-protection#4f262129200f3c3b3d2e3b2a28262e6237612c2022" style="color: var(--red); text-decoration: none; cursor: pointer;"><span class="__cf_email__" data-cfemail="6d04030b022d1e191f0c19080a040c4015430e0200">[email&#160;protected]</span></a><br>For all inquiries and consultations</p>
+                        <p><a href="/cdn-cgi/l/email-protection#7f161119103f0c0b0d1e0b1a18161e5207511c1012" style="color: var(--red); text-decoration: none; cursor: pointer;"><span class="__cf_email__" data-cfemail="fd94939b92bd8e898f9c89989a949cd085d39e9290">[email&#160;protected]</span></a><br>For all inquiries and consultations</p>
                     </div>
                     
                     <div class="service-card stagger-item">
@@ -5395,7 +5395,7 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#660f08000926151214071203010f074b1e4805090b" style="cursor: pointer;"><span class="__cf_email__" data-cfemail="543d3a323b14272026352031333d35792c7a373b39">[email&#160;protected]</span></a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#bdd4d3dbd2fdcec9cfdcc9d8dad4dc90c593ded2d0" style="cursor: pointer;"><span class="__cf_email__" data-cfemail="234a4d454c63505751425746444a420e5b0d404c4e">[email&#160;protected]</span></a></li>
                     <li>Elite Consulting Solutions</li>
                     <li>Strategic Technology Implementation</li>
                 </ul>
@@ -7715,4 +7715,22 @@ Submitted: ${new Date().toLocaleString()}
                         
                         if (targetValue > 0 && !statElement.classList.contains('counted')) {
                                               statElement.classList.add('counted');
-           
+                                       animateCounter(statElement, 0, targetValue, 2000);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            // Observe all stat number elements
+            document.querySelectorAll('.stat-number[data-target]').forEach(stat => {
+                statObserver.observe(stat);
+            });
+        });
+
+        // Initialize all animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+        });
+    </script>
+</body>
+</html>
